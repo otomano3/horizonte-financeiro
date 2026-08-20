@@ -1,0 +1,9 @@
+# Normaliza fim de linha: LF no repositório, o que o Windows usa localmente
+# fica a critério dele. Evita diff inteiro aparecer só por CRLF.
+* text=auto eol=lf
+
+# Binários — nunca converter
+*.png binary
+*.jpg binary
+*.ico binary
+*.woff2 binary

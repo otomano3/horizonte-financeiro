@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Favicon: disco azul profundo sangrando no quadrado e o símbolo em dourado.
+       O anel grafite do badge foi omitido de propósito — a 16px ele viraria ruído. -->
+  <circle cx="50" cy="50" r="50" fill="#0f2d44"/>
+  <g transform="translate(13,24) scale(0.548)" fill="#f5a623">
+    <path d="M6.5 56.5A53.5 53.5 0 0 1 113.5 56.5Z"/>
+    <path d="M6.5 89 34 70 52 82 80 49 96 64 127.5 17"
+          fill="none" stroke="#f5a623" stroke-width="10.5"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="127.5" cy="17" r="6.2"/>
+  </g>
+</svg>

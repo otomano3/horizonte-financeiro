@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 200" width="780" height="200" role="img" aria-label="Horizonte Financeiro">
+  <title>Horizonte Financeiro</title>
+  <!-- Lockup horizontal: badge + assinatura em branco suave.
+       Fundo transparente — pensado para usar sobre azul profundo #0F2D44
+       ou grafite #1E1E1E. Para fundo claro, troque os dois fill do texto
+       para #121A24. -->
+  <g transform="translate(0,0) scale(1)">
+    <circle cx="100" cy="100" r="93" fill="none" stroke="#1e1e1e" stroke-width="7"/>
+    <circle cx="100" cy="100" r="88" fill="#0f2d44"/>
+    <path d="M42.5 115.5A53.5 53.5 0 0 1 149.5 115.5Z" fill="#f5a623"/>
+    <path d="M42.5 148 70 129 88 141 116 108 132 123 163.5 76"
+          fill="none" stroke="#f5a623" stroke-width="10.5"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="163.5" cy="76" r="6.2" fill="#f5a623"/>
+  </g>
+  <g fill="#f5f6f7" font-family="Inter, Helvetica, Arial, sans-serif" font-weight="800" font-size="62" letter-spacing="3">
+    <text x="228" y="88">HORIZONTE</text>
+    <text x="228" y="152">FINANCEIRO</text>
+  </g>
+  <rect x="228" y="168" width="96" height="7" fill="#f5a623"/>
+</svg>

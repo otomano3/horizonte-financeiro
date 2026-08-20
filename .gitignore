@@ -1,0 +1,14 @@
+# Vercel
+.vercel
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+
+# Se um dia você mover as chaves para um arquivo separado e privado
+config.local.js

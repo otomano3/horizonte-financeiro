@@ -1,0 +1,456 @@
+/* ==========================================================================
+   Horizonte Financeiro — folha de estilo única
+
+   Paleta OFICIAL da marca (guia de identidade):
+     #0F2D44  azul profundo   (principal)
+     #F5A623  dourado         (destaque)
+     #121A24  azul escuro     (secundária)
+     #1E1E1E  grafite         (fundo)
+     #8A9199  cinza médio     (texto secundário)
+     #F5F6F7  branco suave    (texto principal)
+
+   Os tons intermediários (--navy-soft, --navy-line, --body, --gold-ink)
+   são derivados dos oficiais só para dar contraste suficiente de leitura.
+   ========================================================================== */
+
+:root {
+  /* --- cores da marca --- */
+  --navy: #0f2d44;
+  --navy-deep: #121a24;
+  --graphite: #1e1e1e;
+  --gold: #f5a623;
+  --gray: #8a9199;
+  --white-soft: #f5f6f7;
+
+  /* --- derivados, para contraste --- */
+  --navy-soft: #16405d;        /* cartão sobre azul profundo */
+  --navy-line: #22557a;        /* borda sobre azul profundo */
+  --gold-soft: #ffbe52;        /* dourado no hover */
+  --gold-ink: #9c5c00;         /* dourado legível como texto sobre claro (4.7:1 no cinza --off) */
+  --ink: #121a24;              /* títulos sobre fundo claro */
+  --body: #4a5661;             /* texto corrido sobre fundo claro */
+  --body-on-navy: #c6cdd4;     /* texto corrido sobre azul profundo */
+  --white: #ffffff;
+  --off: #f1f3f5;
+  --border: #dde1e5;
+
+  --wrap: 1120px;
+  --gap: clamp(1.25rem, 3vw, 2rem);
+  --radius: 4px;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: clamp(1rem, 0.97rem + 0.2vw, 1.0625rem);
+  line-height: 1.7;
+  color: var(--body);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--ink); text-decoration-color: var(--gold); text-underline-offset: 3px; }
+a:hover { color: var(--gold-ink); }
+
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+/* ---------- Tipografia ------------------------------------------------- */
+
+h1, h2, h3, h4 {
+  font-family: var(--sans);
+  color: var(--ink);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+  font-weight: 800;
+}
+
+h1 { font-size: clamp(2.25rem, 1.4rem + 4.2vw, 4.25rem); text-transform: uppercase; }
+h2 { font-size: clamp(1.75rem, 1.2rem + 2.4vw, 2.75rem); }
+h3 { font-size: clamp(1.125rem, 1rem + 0.6vw, 1.375rem); font-weight: 700; letter-spacing: -0.01em; }
+
+p { margin: 0 0 1.25rem; }
+p:last-child { margin-bottom: 0; }
+
+.lead { font-size: clamp(1.0625rem, 1rem + 0.5vw, 1.3125rem); line-height: 1.6; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-ink);
+  margin: 0 0 0.75rem;
+  display: block;
+}
+
+/* Régua dourada abaixo dos títulos */
+.rule {
+  width: 72px;
+  height: 5px;
+  background: var(--gold);
+  border: 0;
+  margin: 0 0 1.75rem;
+}
+.rule--center { margin-inline: auto; }
+
+.text-center { text-align: center; }
+.measure { max-width: 62ch; }
+.measure--tight { max-width: 46ch; }
+.mx-auto { margin-inline: auto; }
+
+/* ---------- Estrutura -------------------------------------------------- */
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
+.section--soft { background: var(--off); }
+.section--navy { background: var(--navy); }
+.section--deep { background: var(--navy-deep); }
+.section--tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
+
+.section--navy, .section--navy p, .section--navy li,
+.section--deep, .section--deep p, .section--deep li { color: var(--body-on-navy); }
+.section--navy h1, .section--navy h2, .section--navy h3,
+.section--deep h1, .section--deep h2, .section--deep h3 { color: var(--white-soft); }
+.section--navy .eyebrow, .section--deep .eyebrow { color: var(--gold); }
+.section--navy a, .section--deep a { color: var(--gold); }
+
+.skip {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  background: var(--gold); color: var(--navy-deep); padding: 0.75rem 1.25rem; font-weight: 700;
+}
+.skip:focus { left: 0; }
+
+/* ---------- Cabeçalho -------------------------------------------------- */
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--navy);
+  border-bottom: 1px solid var(--navy-line);
+}
+
+.site-header .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; min-height: 72px;
+}
+
+.brand {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  text-decoration: none; color: var(--white-soft);
+}
+.brand:hover { color: var(--white-soft); }
+
+/* O símbolo da marca herda a cor por currentColor */
+.brand__mark { width: 36px; flex: none; color: var(--gold); }
+
+.brand__name {
+  font-weight: 800; font-size: 0.9375rem; line-height: 1.15;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--white-soft);
+}
+.brand__name span { display: block; }
+
+.nav-toggle {
+  display: none; background: none; border: 1px solid var(--navy-line); color: var(--white-soft);
+  padding: 0.5rem 0.7rem; border-radius: var(--radius); font: inherit; cursor: pointer;
+}
+
+.nav { display: flex; align-items: center; gap: clamp(1rem, 2.2vw, 1.9rem); }
+.nav a {
+  color: var(--body-on-navy); text-decoration: none; font-size: 0.9375rem; font-weight: 500;
+  padding-block: 0.35rem; border-bottom: 2px solid transparent;
+}
+.nav a:hover { color: var(--white-soft); border-bottom-color: var(--gold); }
+.nav a[aria-current="page"] { color: var(--white-soft); border-bottom-color: var(--gold); }
+.nav .btn, .nav .btn:hover, .nav .btn[aria-current="page"] { border-bottom: 0; }
+
+/* Na página do voluntário o próprio botão carrega aria-current, e
+   `.nav a[aria-current]` é mais específico que `.btn.btn--gold`. */
+.nav .btn--gold[aria-current="page"] { color: var(--navy-deep); }
+.nav .btn--ghost[aria-current="page"] { color: var(--white-soft); }
+
+@media (max-width: 880px) {
+  .nav-toggle { display: block; }
+  .nav {
+    display: none; position: absolute; left: 0; right: 0; top: 100%;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--navy); border-bottom: 1px solid var(--navy-line);
+    padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem) 1.5rem;
+  }
+  .nav.is-open { display: flex; }
+  .nav a { padding-block: 0.85rem; border-bottom: 1px solid var(--navy-line); }
+  .nav a:hover, .nav a[aria-current="page"] { border-bottom-color: var(--navy-line); }
+  .nav .btn { margin-top: 1rem; text-align: center; }
+}
+
+/* ---------- Botões ----------------------------------------------------- */
+
+.btn {
+  display: inline-block; font: inherit; font-weight: 700; line-height: 1.2;
+  padding: 0.9rem 1.6rem; border-radius: var(--radius); border: 2px solid transparent;
+  text-decoration: none; cursor: pointer;
+  transition: transform .12s ease, background-color .12s ease, color .12s ease;
+}
+.btn:active { transform: translateY(1px); }
+
+/* A cor dos botões é declarada com duas classes (.btn.btn--x) de propósito.
+   Botão é sempre um <a>, e seletores como `.nav a` ou `.section--navy a`
+   têm especificidade maior que `.btn--x` sozinho — o que fazia o botão
+   dourado herdar texto claro sobre fundo dourado e desaparecer. */
+.btn.btn--gold { background: var(--gold); color: var(--navy-deep); }
+.btn.btn--gold:hover { background: var(--gold-soft); color: var(--navy-deep); }
+
+.btn.btn--navy { background: var(--navy); color: var(--white-soft); }
+.btn.btn--navy:hover { background: var(--navy-soft); color: var(--white-soft); }
+
+.btn.btn--ghost { border-color: currentColor; color: var(--white-soft); background: transparent; }
+.btn.btn--ghost:hover { background: rgba(245, 246, 247, 0.1); color: var(--white-soft); }
+
+.btn.btn--ghost-dark { border-color: var(--navy-deep); color: var(--navy-deep); background: transparent; }
+.btn.btn--ghost-dark:hover { background: var(--navy-deep); color: var(--white-soft); }
+
+.btn--sm { padding: 0.6rem 1.1rem; font-size: 0.9375rem; }
+.btn--block { display: block; width: 100%; text-align: center; }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 2rem; }
+
+/* ---------- Hero ------------------------------------------------------- */
+
+.hero {
+  background: var(--navy);
+  padding-block: clamp(3.5rem, 9vw, 7rem);
+  position: relative; overflow: hidden;
+}
+.hero::after {
+  content: ""; position: absolute; inset: auto 0 0 0; height: 6px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold) 30%, var(--navy-line) 30%);
+}
+.hero__grid {
+  display: grid; grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 5vw, 4rem); align-items: center;
+}
+.hero h1 { color: var(--white-soft); }
+.hero p { color: var(--body-on-navy); }
+
+/* O hero e a faixa de página têm fundo azul profundo mas não são .section--navy,
+   então precisam trocar o dourado escuro (feito para fundo claro) pelo dourado
+   da marca — senão a etiqueta fica em 3:1 sobre o azul. */
+.hero .eyebrow, .page-head .eyebrow { color: var(--gold); }
+
+/* Bloco da marca: o gradiente sugerido no guia (#0F2D44 → #F5A623)
+   com o símbolo em branco suave por cima. */
+.hero__brand {
+  background: linear-gradient(125deg, var(--navy) 0%, #235070 45%, var(--gold) 100%);
+  border-radius: 14px;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+}
+.hero__brand svg { width: min(80%, 280px); color: var(--white-soft); }
+
+@media (max-width: 820px) {
+  .hero__grid { grid-template-columns: 1fr; }
+  .hero__brand { max-width: 340px; aspect-ratio: 16 / 10; }
+}
+
+/* Faixa de página interna */
+.page-head {
+  background: var(--navy);
+  padding-block: clamp(2.75rem, 6vw, 4.5rem);
+  border-bottom: 5px solid var(--gold);
+}
+.page-head h1 { color: var(--white-soft); font-size: clamp(2rem, 1.4rem + 3vw, 3.25rem); }
+.page-head p { color: var(--body-on-navy); max-width: 58ch; margin-bottom: 0; }
+
+/* ---------- Grades e cartões ------------------------------------------ */
+
+.grid { display: grid; gap: var(--gap); }
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+.grid--sidebar { grid-template-columns: 1.4fr 1fr; align-items: start; }
+
+@media (max-width: 900px) {
+  .grid--3, .grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .grid--sidebar { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
+.card h3 { margin-bottom: 0.6rem; }
+.card p { font-size: 0.9688rem; margin-bottom: 0; }
+.card--navy { background: var(--navy-soft); border-color: var(--navy-line); }
+.card--navy h3 { color: var(--white-soft); }
+.card--navy p { color: var(--body-on-navy); }
+.card--gold { border-left: 5px solid var(--gold); }
+
+/* Números de impacto */
+.stat { border-top: 5px solid var(--gold); padding-top: 1.25rem; }
+.stat__num {
+  font-family: var(--mono); font-weight: 600; font-size: clamp(2rem, 1.4rem + 2.6vw, 3rem);
+  color: var(--ink); line-height: 1; display: block; margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+}
+.section--navy .stat__num, .section--deep .stat__num { color: var(--gold); }
+.stat__label { font-size: 0.9375rem; margin: 0; }
+
+/* Passos numerados */
+.steps {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: var(--gap); grid-template-columns: repeat(3, 1fr);
+  counter-reset: step;
+}
+.steps > li { counter-increment: step; padding-top: 1.25rem; border-top: 1px solid var(--navy-line); }
+.steps > li::before {
+  content: counter(step, decimal-leading-zero) " / 03";
+  font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.16em;
+  color: var(--gold); display: block; margin-bottom: 0.9rem;
+}
+.steps h3 { color: var(--white-soft); }
+@media (max-width: 780px) { .steps { grid-template-columns: 1fr; } }
+
+/* Listas com marcador dourado */
+.list-check { list-style: none; margin: 0 0 1.25rem; padding: 0; }
+.list-check li { position: relative; padding-left: 1.9rem; margin-bottom: 0.85rem; }
+.list-check li::before {
+  content: ""; position: absolute; left: 0; top: 0.62em;
+  width: 12px; height: 2px; background: var(--gold);
+}
+
+/* Perguntas frequentes */
+.faq { border-top: 1px solid var(--border); }
+.faq details { border-bottom: 1px solid var(--border); }
+.faq summary {
+  cursor: pointer; padding: 1.15rem 2.5rem 1.15rem 0; font-weight: 700; color: var(--ink);
+  list-style: none; position: relative;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; position: absolute; right: 0.25rem; top: 1rem;
+  font-family: var(--mono); font-size: 1.35rem; color: var(--gold-ink); line-height: 1;
+}
+.faq details[open] summary::after { content: "\2013"; }
+.faq details > div { padding-bottom: 1.35rem; max-width: 68ch; }
+
+/* Citação */
+.quote { border-left: 5px solid var(--gold); padding-left: clamp(1.25rem, 3vw, 2rem); margin: 0; }
+.quote p {
+  font-size: clamp(1.125rem, 1rem + 0.7vw, 1.5rem); line-height: 1.5;
+  color: var(--ink); font-weight: 500;
+}
+.section--navy .quote p, .section--deep .quote p { color: var(--white-soft); }
+.quote footer {
+  font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gold-ink);
+}
+.section--navy .quote footer, .section--deep .quote footer { color: var(--gold); }
+
+/* ---------- Formulários ------------------------------------------------ */
+
+.form-shell {
+  background: var(--white); border: 1px solid var(--border); border-top: 5px solid var(--gold);
+  border-radius: var(--radius); padding: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+.form-grid { display: grid; gap: 1.15rem; grid-template-columns: repeat(2, 1fr); }
+.field--full { grid-column: 1 / -1; }
+@media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+
+.field { display: flex; flex-direction: column; gap: 0.4rem; min-width: 0; }
+.field > label { font-size: 0.875rem; font-weight: 600; color: var(--ink); }
+.field .hint { font-size: 0.8125rem; color: var(--body); }
+.req { color: var(--gold-ink); }
+
+input, select, textarea {
+  font: inherit; font-size: 1rem; color: var(--ink); background: var(--white);
+  border: 1px solid #c3cbd3; border-radius: var(--radius); padding: 0.7rem 0.85rem;
+  width: 100%; min-width: 0;
+}
+select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--body) 50%),
+    linear-gradient(135deg, var(--body) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 1.15em, calc(100% - 14px) 1.15em;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 2.5rem;
+}
+textarea { min-height: 130px; resize: vertical; }
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gold-ink);
+  outline: 2px solid rgba(245, 166, 35, 0.5); outline-offset: 0;
+}
+input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: #b42318; }
+
+.field__error { font-size: 0.8125rem; color: #b42318; }
+
+.honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.consent { display: flex; gap: 0.7rem; align-items: flex-start; font-size: 0.875rem; }
+.consent input { width: 1.15rem; height: 1.15rem; flex: none; margin-top: 0.15rem; }
+
+.form-status {
+  margin-top: 1.25rem; padding: 0.9rem 1.1rem; border-radius: var(--radius);
+  font-size: 0.9375rem; display: none;
+}
+.form-status.is-visible { display: block; }
+.form-status--ok { background: #ecfdf3; border: 1px solid #abefc6; color: #085d3a; }
+.form-status--erro { background: #fef3f2; border: 1px solid #fecdca; color: #912018; }
+.form-status--enviando { background: var(--off); border: 1px solid var(--border); color: var(--body); }
+
+/* ---------- Faixa de chamada ------------------------------------------ */
+
+.cta-band { background: var(--gold); padding-block: clamp(2.5rem, 5vw, 4rem); }
+.cta-band h2, .cta-band p { color: var(--navy-deep); }
+.cta-band p { max-width: 54ch; margin-bottom: 0; }
+.cta-band__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 2rem; flex-wrap: wrap;
+}
+
+/* ---------- Rodapé ---------------------------------------------------- */
+
+.site-footer {
+  background: var(--navy-deep); color: var(--body-on-navy);
+  padding-block: clamp(2.75rem, 5vw, 4rem) 2rem; border-top: 5px solid var(--gold);
+}
+.site-footer h4 {
+  color: var(--white-soft); font-size: 0.8125rem; font-family: var(--mono);
+  letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 1rem; font-weight: 500;
+}
+.site-footer a { color: var(--body-on-navy); text-decoration: none; }
+.site-footer a:hover { color: var(--gold); text-decoration: underline; }
+.site-footer ul { list-style: none; margin: 0; padding: 0; }
+.site-footer li { margin-bottom: 0.6rem; font-size: 0.9375rem; }
+.footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--gap); }
+@media (max-width: 780px) { .footer__grid { grid-template-columns: 1fr; } }
+.footer__bottom {
+  margin-top: clamp(2rem, 4vw, 3rem); padding-top: 1.5rem; border-top: 1px solid #2a3644;
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  font-size: 0.8125rem; color: var(--gray);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}

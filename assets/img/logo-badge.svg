@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Horizonte Financeiro">
+  <title>Horizonte Financeiro</title>
+  <!-- Marca completa: anel grafite, disco azul profundo, símbolo em dourado.
+       Cores oficiais: #1E1E1E grafite · #0F2D44 azul profundo · #F5A623 dourado.
+       Proporções tiradas do guia de identidade da marca. -->
+  <circle cx="100" cy="100" r="93" fill="none" stroke="#1e1e1e" stroke-width="7"/>
+  <circle cx="100" cy="100" r="88" fill="#0f2d44"/>
+  <path d="M42.5 115.5A53.5 53.5 0 0 1 149.5 115.5Z" fill="#f5a623"/>
+  <path d="M42.5 148 70 129 88 141 116 108 132 123 163.5 76"
+        fill="none" stroke="#f5a623" stroke-width="10.5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="163.5" cy="76" r="6.2" fill="#f5a623"/>
+</svg>
