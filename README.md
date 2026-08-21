@@ -9,11 +9,29 @@ sobre.html          O projeto, as 4 aulas, perguntas frequentes
 voluntarios.html    Inscrição de voluntário  → tabela hf_voluntarios
 escolas.html        Inscrição de escola      → tabela hf_escolas
 contato.html        Mensagem livre           → tabela hf_mensagens
+privacidade.html    Política de Privacidade (LGPD)
+termos.html         Termos de Uso
+
+sitemap.xml         7 URLs, para o Google
+robots.txt          libera tudo, aponta o sitemap
+llms.txt            resumo do projeto para modelos de linguagem
+
 assets/css/style.css
-assets/js/config.js  ← as duas chaves do Supabase vão aqui
+assets/js/config.js  chaves do Supabase e canais de contato
 assets/js/site.js    menu no celular + envio dos formulários
 supabase/schema.sql  estrutura do banco (rodar uma vez)
-vercel.json          URLs limpas e cabeçalhos de segurança
+vercel.json          cabeçalhos de segurança e cache
+```
+
+A estrutura de páginas e os arquivos de SEO seguem o mesmo padrão do projeto
+Vestra: páginas legais no rodapé, `sitemap`, `robots` e `llms.txt` na raiz.
+
+**Pendência de domínio:** `sitemap.xml`, `robots.txt` e `llms.txt` estão com o
+texto `DOMINIO-A-DEFINIR` no lugar da URL real. Depois do deploy, um comando
+resolve os três:
+
+```bash
+cd C:\Users\Thoma\horizonte-financeiro && grep -rl DOMINIO-A-DEFINIR . | xargs sed -i 's|https://DOMINIO-A-DEFINIR|https://seu-dominio-real|g'
 ```
 
 ## 1. O banco — já conectado

@@ -1,0 +1,8 @@
+# Horizonte Financeiro
+# Site institucional inteiro é público — nada a bloquear.
+# Troque DOMINIO-A-DEFINIR pelo domínio real depois do deploy.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://DOMINIO-A-DEFINIR/sitemap.xml
