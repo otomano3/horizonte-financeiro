@@ -43,6 +43,15 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* Título só para leitor de tela: existe na árvore de acessibilidade
+   para dar hierarquia de heading a uma seção sem título visível, sem
+   alterar o layout que já está definido no design. */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px;
+  padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+  border: 0;
+}
+
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
@@ -434,7 +443,7 @@ input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="
   background: var(--navy-deep); color: var(--body-on-navy);
   padding-block: clamp(2.75rem, 5vw, 4rem) 2rem; border-top: 5px solid var(--gold);
 }
-.site-footer h4 {
+.site-footer h2 {
   color: var(--white-soft); font-size: 0.8125rem; font-family: var(--mono);
   letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 1rem; font-weight: 500;
 }

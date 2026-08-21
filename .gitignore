@@ -12,3 +12,6 @@ desktop.ini
 
 # Se um dia você mover as chaves para um arquivo separado e privado
 config.local.js
+
+.vercel
+.env*
