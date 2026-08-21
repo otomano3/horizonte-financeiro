@@ -26,12 +26,13 @@ vercel.json          cabeçalhos de segurança e cache
 A estrutura de páginas e os arquivos de SEO seguem o mesmo padrão do projeto
 Vestra: páginas legais no rodapé, `sitemap`, `robots` e `llms.txt` na raiz.
 
-**Pendência de domínio:** `sitemap.xml`, `robots.txt` e `llms.txt` estão com o
-texto `DOMINIO-A-DEFINIR` no lugar da URL real. Depois do deploy, um comando
-resolve os três:
+**Domínio.** O site está no ar em
+<https://horizonte-financeiro-sigma.vercel.app>. Esse endereço aparece no
+`sitemap.xml`, no `robots.txt` e no `llms.txt`. Se um dia registrar domínio
+próprio, um comando atualiza os três:
 
 ```bash
-cd C:\Users\Thoma\horizonte-financeiro && grep -rl DOMINIO-A-DEFINIR . | xargs sed -i 's|https://DOMINIO-A-DEFINIR|https://seu-dominio-real|g'
+grep -rl horizonte-financeiro-sigma.vercel.app . | xargs sed -i 's|horizonte-financeiro-sigma.vercel.app|seu-dominio.com.br|g'
 ```
 
 ## 1. O banco — já conectado

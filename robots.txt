@@ -1,8 +1,9 @@
 # Horizonte Financeiro
 # Site institucional inteiro é público — nada a bloquear.
-# Troque DOMINIO-A-DEFINIR pelo domínio real depois do deploy.
+# Se um dia mudar de domínio, atualize a linha Sitemap aqui,
+# as URLs do sitemap.xml e os links do llms.txt.
 
 User-agent: *
 Allow: /
 
-Sitemap: https://DOMINIO-A-DEFINIR/sitemap.xml
+Sitemap: https://horizonte-financeiro-sigma.vercel.app/sitemap.xml

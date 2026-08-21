@@ -1,52 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ATENÇÃO: troque DOMINIO-A-DEFINIR pelo domínio real depois do deploy.
-  Um comando resolve todos os arquivos de uma vez:
+  Dominio atual: https://horizonte-financeiro-sigma.vercel.app
+  Se registrar um dominio proprio, troque aqui, no robots.txt e no llms.txt:
 
-    cd C:\Users\Thoma\horizonte-financeiro
-    grep -rl DOMINIO-A-DEFINIR . | xargs sed -i 's|https://DOMINIO-A-DEFINIR|https://seu-dominio.com.br|g'
-
-  Sitemap com domínio errado não quebra o site, mas o Google ignora.
+    grep -rl horizonte-financeiro-sigma.vercel.app . | xargs sed -i 's|horizonte-financeiro-sigma.vercel.app|seu-dominio.com.br|g'
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://DOMINIO-A-DEFINIR/index.html</loc>
+    <loc>https://horizonte-financeiro-sigma.vercel.app/index.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://DOMINIO-A-DEFINIR/voluntarios.html</loc>
+    <loc>https://horizonte-financeiro-sigma.vercel.app/voluntarios.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://DOMINIO-A-DEFINIR/escolas.html</loc>
+    <loc>https://horizonte-financeiro-sigma.vercel.app/escolas.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://DOMINIO-A-DEFINIR/sobre.html</loc>
+    <loc>https://horizonte-financeiro-sigma.vercel.app/sobre.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://DOMINIO-A-DEFINIR/contato.html</loc>
+    <loc>https://horizonte-financeiro-sigma.vercel.app/contato.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://DOMINIO-A-DEFINIR/privacidade.html</loc>
+    <loc>https://horizonte-financeiro-sigma.vercel.app/privacidade.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://DOMINIO-A-DEFINIR/termos.html</loc>
+    <loc>https://horizonte-financeiro-sigma.vercel.app/termos.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
