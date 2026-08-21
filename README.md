@@ -27,12 +27,12 @@ A estrutura de páginas e os arquivos de SEO seguem o mesmo padrão do projeto
 Vestra: páginas legais no rodapé, `sitemap`, `robots` e `llms.txt` na raiz.
 
 **Domínio.** O site está no ar em
-<https://horizonte-financeiro-sigma.vercel.app>. Esse endereço aparece no
+<https://horizontefinanceiro.ong.br>. Esse endereço aparece no
 `sitemap.xml`, no `robots.txt` e no `llms.txt`. Se um dia registrar domínio
 próprio, um comando atualiza os três:
 
 ```bash
-grep -rl horizonte-financeiro-sigma.vercel.app . | xargs sed -i 's|horizonte-financeiro-sigma.vercel.app|seu-dominio.com.br|g'
+grep -rl horizontefinanceiro.ong.br . | xargs sed -i 's|horizontefinanceiro.ong.br|seu-dominio.com.br|g'
 ```
 
 ## 1. O banco, já conectado

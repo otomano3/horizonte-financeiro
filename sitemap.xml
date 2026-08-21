@@ -1,49 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Dominio atual: https://horizonte-financeiro-sigma.vercel.app
-  Se registrar um dominio proprio, troque aqui, no robots.txt e no llms.txt:
-
-    grep -rl horizonte-financeiro-sigma.vercel.app . | xargs sed -i 's|horizonte-financeiro-sigma.vercel.app|seu-dominio.com.br|g'
+  Dominio: https://horizontefinanceiro.ong.br
+  O endereco .vercel.app continua respondendo, mas o canonical de cada
+  pagina aponta para este dominio, que e a versao oficial do site.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://horizonte-financeiro-sigma.vercel.app/index.html</loc>
+    <loc>https://horizontefinanceiro.ong.br/</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://horizonte-financeiro-sigma.vercel.app/voluntarios.html</loc>
+    <loc>https://horizontefinanceiro.ong.br/voluntarios.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://horizonte-financeiro-sigma.vercel.app/escolas.html</loc>
+    <loc>https://horizontefinanceiro.ong.br/escolas.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://horizonte-financeiro-sigma.vercel.app/sobre.html</loc>
+    <loc>https://horizontefinanceiro.ong.br/sobre.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://horizonte-financeiro-sigma.vercel.app/contato.html</loc>
+    <loc>https://horizontefinanceiro.ong.br/contato.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://horizonte-financeiro-sigma.vercel.app/privacidade.html</loc>
+    <loc>https://horizontefinanceiro.ong.br/privacidade.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://horizonte-financeiro-sigma.vercel.app/termos.html</loc>
+    <loc>https://horizontefinanceiro.ong.br/termos.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

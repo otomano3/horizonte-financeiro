@@ -6,4 +6,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://horizonte-financeiro-sigma.vercel.app/sitemap.xml
+Sitemap: https://horizontefinanceiro.ong.br/sitemap.xml
