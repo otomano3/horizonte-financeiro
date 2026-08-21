@@ -1,5 +1,5 @@
 -- ============================================================================
--- Horizonte Financeiro — estrutura do banco
+-- Horizonte Financeiro: estrutura do banco
 --
 -- Como usar:
 --   Supabase → SQL Editor → cole este arquivo inteiro → Run.
@@ -14,7 +14,7 @@
 --
 -- Sobre o prefixo hf_: existe para as tabelas do Horizonte Financeiro poderem
 -- conviver no mesmo banco de outro projeto sem confusão. Num projeto Supabase
--- exclusivo do Horizonte, o prefixo pode cair — mas aí lembre de ajustar o
+-- exclusivo do Horizonte, o prefixo pode cair, mas aí lembre de ajustar o
 -- atributo data-tabela dos <form> nas páginas voluntarios/escolas/contato.
 -- ============================================================================
 

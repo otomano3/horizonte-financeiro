@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Horizonte Financeiro — folha de estilo única
+   Horizonte Financeiro: folha de estilo única
 
    Paleta OFICIAL da marca (guia de identidade):
      #0F2D44  azul profundo   (principal)
@@ -208,7 +208,7 @@ p:last-child { margin-bottom: 0; }
 
 /* A cor dos botões é declarada com duas classes (.btn.btn--x) de propósito.
    Botão é sempre um <a>, e seletores como `.nav a` ou `.section--navy a`
-   têm especificidade maior que `.btn--x` sozinho — o que fazia o botão
+   têm especificidade maior que `.btn--x` sozinho. Isso fazia o botão
    dourado herdar texto claro sobre fundo dourado e desaparecer. */
 .btn.btn--gold { background: var(--gold); color: var(--navy-deep); }
 .btn.btn--gold:hover { background: var(--gold-soft); color: var(--navy-deep); }
@@ -247,7 +247,7 @@ p:last-child { margin-bottom: 0; }
 
 /* O hero e a faixa de página têm fundo azul profundo mas não são .section--navy,
    então precisam trocar o dourado escuro (feito para fundo claro) pelo dourado
-   da marca — senão a etiqueta fica em 3:1 sobre o azul. */
+   da marca. Senão a etiqueta fica em 3:1 sobre o azul. */
 .hero .eyebrow, .page-head .eyebrow { color: var(--gold); }
 
 /* Bloco da marca: o gradiente sugerido no guia (#0F2D44 → #F5A623)

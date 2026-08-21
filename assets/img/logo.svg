@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 200" width="780" height="200" role="img" aria-label="Horizonte Financeiro">
   <title>Horizonte Financeiro</title>
   <!-- Lockup horizontal: badge + assinatura em branco suave.
-       Fundo transparente — pensado para usar sobre azul profundo #0F2D44
+       Fundo transparente, pensado para usar sobre azul profundo #0F2D44
        ou grafite #1E1E1E. Para fundo claro, troque os dois fill do texto
        para #121A24. -->
   <g transform="translate(0,0) scale(1)">

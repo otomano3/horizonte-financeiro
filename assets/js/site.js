@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Horizonte Financeiro — comportamento do site
+   Horizonte Financeiro: comportamento do site
    Sem dependências. Dois trabalhos: menu no celular e envio dos formulários
    para o Supabase via API REST.
    ========================================================================== */
@@ -100,7 +100,7 @@
         return;
       }
       if (campo.type === "email" && valor && !EMAIL_RE.test(valor)) {
-        marcarErro(campo, "Confira o e-mail — parece estar incompleto.");
+        marcarErro(campo, "Confira o e-mail, parece estar incompleto.");
         primeiroErro = primeiroErro || campo;
       }
     });
@@ -165,7 +165,7 @@
 
       if (!resposta.ok) {
         var detalhe = await resposta.text();
-        throw new Error("HTTP " + resposta.status + " — " + detalhe);
+        throw new Error("HTTP " + resposta.status + ": " + detalhe);
       }
 
       form.reset();

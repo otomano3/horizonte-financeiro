@@ -1,4 +1,4 @@
-# Horizonte Financeiro — site
+# Horizonte Financeiro: site
 
 Site institucional do projeto. HTML e CSS puros, sem build, sem npm, sem
 framework. Abrir o `index.html` no navegador já funciona.
@@ -35,7 +35,7 @@ próprio, um comando atualiza os três:
 grep -rl horizonte-financeiro-sigma.vercel.app . | xargs sed -i 's|horizonte-financeiro-sigma.vercel.app|seu-dominio.com.br|g'
 ```
 
-## 1. O banco — já conectado
+## 1. O banco, já conectado
 
 Projeto Supabase `febhmuwmchfnmcnckpvj`, na organização `otomano3`, região
 São Paulo. As três tabelas e as políticas de RLS já foram criadas com
@@ -49,7 +49,7 @@ Se um dia precisar refazer isso em outro projeto: rode o `schema.sql` no
 **SQL Editor**, pegue a **Project URL** e a **publishable key** em
 **Project Settings → API**, e troque as duas linhas do `config.js`.
 
-Essas duas chaves são públicas de propósito — qualquer visitante consegue vê-las
+Essas duas chaves são públicas de propósito: qualquer visitante consegue vê-las
 no navegador. Quem protege os dados é o RLS: com essa chave só é possível
 **inserir** inscrições, nunca ler, editar ou apagar. **Nunca** coloque a
 `service_role` key nesse arquivo.
@@ -79,7 +79,7 @@ Cada `git push` na branch principal republica o site automaticamente.
 - [ ] **Trocar os números da home quando houver histórico.** A seção "O
       combinado, em números" hoje descreve a *proposta* (4 aulas, 50 min, R$ 0,
       1 voluntário por turma) porque o projeto ainda não deu aula. Quando
-      houver aulas dadas e alunos alcançados, troque por esses — número de
+      houver aulas dadas e alunos alcançados, troque por esses. Número de
       resultado convence mais que número de oferta. Não coloque métrica de
       resultado zerada ali.
 - [ ] **Atualizar a contagem de escolas.** O parágrafo abaixo dos números diz
@@ -87,32 +87,32 @@ Cada `git push` na branch principal republica o site automaticamente.
 - [ ] **Conferir o texto das 4 aulas** em `sobre.html`. Foi escrito a partir dos
       slides do projeto; ajuste para o que vocês realmente dão.
 - [ ] **Apagar as 3 linhas de teste** das tabelas, se ainda estiverem lá. Elas
-      começam com `TESTE` — dá para filtrar no Table Editor.
+      começam com `TESTE`, dá para filtrar no Table Editor.
 - [x] ~~Conectar o banco e testar os formulários~~
-- [x] ~~Definir o e-mail de contato~~ — `horizonte.financeiro.contato@gmail.com`
-- [x] ~~Imagem de compartilhamento~~ — `assets/img/og.png`, 1200×630
+- [x] ~~Definir o e-mail de contato~~: `horizonte.financeiro.contato@gmail.com`
+- [x] ~~Imagem de compartilhamento~~: `assets/img/og.png`, 1200×630
 
 ## Como editar o texto
 
 Todo o conteúdo está direto no HTML, em português, sem template. Procure a
 frase que quer mudar e mude. As cores ficam todas no topo de
-`assets/css/style.css`, no bloco `:root` — mudar `--gold` ali muda o site
+`assets/css/style.css`, no bloco `:root`. Mudar `--gold` ali muda o site
 inteiro.
 
 Paleta oficial, do guia de identidade da marca:
 
 | Cor | Hex | Papel |
 |---|---|---|
-| Azul profundo | `#0F2D44` | principal — cabeçalho, hero, seções escuras |
-| Dourado | `#F5A623` | destaque — botões, réguas, o símbolo |
-| Azul escuro | `#121A24` | secundária — rodapé, texto sobre fundo claro |
-| Grafite | `#1E1E1E` | fundo — anel do badge |
+| Azul profundo | `#0F2D44` | principal: cabeçalho, hero, seções escuras |
+| Dourado | `#F5A623` | destaque: botões, réguas, o símbolo |
+| Azul escuro | `#121A24` | secundária: rodapé, texto sobre fundo claro |
+| Grafite | `#1E1E1E` | fundo: anel do badge |
 | Cinza médio | `#8A9199` | texto secundário |
 | Branco suave | `#F5F6F7` | texto principal sobre fundo escuro |
 
 Três tons são derivados desses, só para dar contraste de leitura suficiente:
 `--navy-soft` e `--navy-line` (cartões e bordas sobre o azul) e `--gold-ink`
-(`#9C5C00`, o dourado escurecido para funcionar como texto sobre fundo claro —
+(`#9C5C00`, o dourado escurecido para funcionar como texto sobre fundo claro, já que
 o `#F5A623` puro só tem 2:1 sobre branco).
 
 ### Arquivos da logo
@@ -127,11 +127,11 @@ o `#F5A623` puro só tem 2:1 sobre branco).
 **Importante:** essas quatro peças foram **redesenhadas em SVG a partir da
 imagem do guia**, porque não havia arquivo vetorial da marca. As proporções
 foram medidas na imagem, mas não são o original. Se aparecer o `.ai`, `.svg` ou
-`.eps` do designer, troque — vetor original sempre ganha de redesenho.
+`.eps` do designer, troque, porque vetor original sempre ganha de redesenho.
 
 No cabeçalho e no rodapé o símbolo está **embutido no HTML** (inline SVG), não
-referenciado por `<img>`. Se mudar a forma da marca, mude nos cinco `index/
-sobre/voluntarios/escolas/contato` — são dois lugares por página.
+referenciado por `<img>`. Se mudar a forma da marca, mude nas sete páginas: são dois lugares
+em cada uma.
 
 ## Notas de manutenção
 
@@ -140,7 +140,7 @@ sobre/voluntarios/escolas/contato` — são dois lugares por página.
 Duas coisas para não repetir erros já cometidos aqui:
 
 **Não coloque comentário no arquivo.** A Vercel valida o `vercel.json` contra um
-schema estrito e recusa qualquer propriedade fora dele — inclusive o truque de
+schema estrito e recusa qualquer propriedade fora dele, inclusive o truque de
 usar uma chave `"//"` como comentário. O deploy falha com
 *"should NOT have additional property"*. Explicação de decisão vai neste README.
 
@@ -148,7 +148,7 @@ usar uma chave `"//"` como comentário. O deploy falha com
 em `/sobre.html` redirecionando para `/sobre`, e como todos os links internos do
 site usam `.html`, cada clique pagaria um salto extra. Desligado, o site se
 comporta igual local e em produção. Se um dia quiser URL sem `.html`, ligue
-`cleanUrls` **e** troque os `href` das sete páginas na mesma mudança — meia
+`cleanUrls` **e** troque os `href` das sete páginas na mesma mudança. Meia
 troca é o pior dos dois mundos.
 
 - Os formulários validam no próprio JavaScript para as mensagens de erro saírem
