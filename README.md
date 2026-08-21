@@ -134,6 +134,22 @@ sobre/voluntarios/escolas/contato` — são dois lugares por página.
 
 ## Notas de manutenção
 
+### vercel.json
+
+Duas coisas para não repetir erros já cometidos aqui:
+
+**Não coloque comentário no arquivo.** A Vercel valida o `vercel.json` contra um
+schema estrito e recusa qualquer propriedade fora dele — inclusive o truque de
+usar uma chave `"//"` como comentário. O deploy falha com
+*"should NOT have additional property"*. Explicação de decisão vai neste README.
+
+**`cleanUrls` está `false` de propósito.** Com ele ligado, a Vercel responde 308
+em `/sobre.html` redirecionando para `/sobre`, e como todos os links internos do
+site usam `.html`, cada clique pagaria um salto extra. Desligado, o site se
+comporta igual local e em produção. Se um dia quiser URL sem `.html`, ligue
+`cleanUrls` **e** troque os `href` das sete páginas na mesma mudança — meia
+troca é o pior dos dois mundos.
+
 - Os formulários validam no próprio JavaScript para as mensagens de erro saírem
   em português. Cada campo tem um `<p class="field__error">` onde a mensagem
   aparece.

@@ -1,18 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-
-  "//": [
-    "cleanUrls fica DESLIGADO de propósito. Com ele ligado, a Vercel responde",
-    "308 em /sobre.html redirecionando para /sobre — e como todos os links",
-    "internos usam .html, cada clique pagaria um salto extra. Desligado, o site",
-    "se comporta igual local e em produção.",
-    "Se um dia quiser URL sem .html: ligue cleanUrls E troque os href das cinco",
-    "páginas para extensionless na mesma mudança. Meia troca é o pior dos dois."
-  ],
-
   "cleanUrls": false,
   "trailingSlash": false,
-
   "headers": [
     {
       "source": "/(.*)",
