@@ -11,8 +11,10 @@ escolas.html        Inscrição de escola      → tabela hf_escolas
 contato.html        Mensagem livre           → tabela hf_mensagens
 privacidade.html    Política de Privacidade (LGPD)
 termos.html         Termos de Uso
+artigos.html        Listagem de artigos (vazia até o primeiro ser publicado)
+artigos/<slug>.html cada artigo publicado, um arquivo por texto
 
-sitemap.xml         7 URLs, para o Google
+sitemap.xml         8 URLs, para o Google
 robots.txt          libera tudo, aponta o sitemap
 llms.txt            resumo do projeto para modelos de linguagem
 
@@ -34,6 +36,54 @@ próprio, um comando atualiza os três:
 ```bash
 grep -rl horizontefinanceiro.ong.br . | xargs sed -i 's|horizontefinanceiro.ong.br|seu-dominio.com.br|g'
 ```
+
+## Publicar um artigo novo
+
+O site não tem CMS nem editor visual, de propósito: é HTML estático, sem
+build. Um artigo novo é sempre um arquivo novo. O fluxo combinado é: quem
+escreve manda o texto pronto (Google Docs, Word, o que for) para quem
+administra o site, que passa para uma sessão do Claude Code publicar. Não
+existe painel onde o autor publica sozinho.
+
+Passo a passo para quem estiver publicando:
+
+1. **Crie o arquivo** em `artigos/<slug-do-titulo>.html`, por exemplo
+   `artigos/como-funciona-o-cdb.html`. Slug em minúsculas, sem acento, hífen
+   no lugar de espaço.
+
+2. **Copie a estrutura de `termos.html` ou `privacidade.html`** como base: mesmo
+   `<head>`, mesmo cabeçalho, mesmo rodapé, mesma `<div class="measure">` para
+   o corpo do texto. Ajuste apenas:
+   - `<title>`, `<meta name="description">`, `og:title`, `og:description`
+   - `og:type` para `article` (já é o padrão de `sobre.html`)
+   - `og:url` e `<link rel="canonical">` para
+     `https://horizontefinanceiro.ong.br/artigos/<slug>.html`
+   - O `<h1>` e o texto do artigo
+
+3. **Inclua uma linha de autoria** logo abaixo do `<h1>`, dentro do
+   `page-head`, no formato `<span class="eyebrow">22 ago 2026 · por Fulano de
+   Tal, analista de crédito</span>`. Data de publicação e uma linha curta de
+   quem é o autor, sem precisar de foto nem bio longa.
+
+4. **Termine o texto com o aviso de sempre**, o mesmo espírito do item 2 dos
+   Termos de Uso: nada no artigo é recomendação de investimento. Um parágrafo
+   simples antes do rodapé resolve, por exemplo: *"Este texto tem finalidade
+   educacional e não é recomendação de investimento. Fale com um profissional
+   antes de tomar qualquer decisão financeira."* Isso é inegociável, é a
+   mesma regra que vale para as aulas.
+
+5. **Adicione um card na listagem**, em `artigos.html`. A própria página tem
+   um comentário HTML mostrando o modelo exato do card e onde ele entra.
+
+6. **Adicione a URL ao `sitemap.xml`**, seguindo o padrão dos outros artigos
+   já lá.
+
+7. **Confira os links internos**: o card na listagem aponta para o artigo, e
+   o artigo tem um link de volta para `artigos.html`.
+
+Não é preciso mexer em `robots.txt` nem em `llms.txt` a cada artigo novo,
+esses dois só precisam saber que a seção `/artigos.html` existe, o que já
+está feito.
 
 ## 1. O banco, já conectado
 
@@ -130,7 +180,7 @@ foram medidas na imagem, mas não são o original. Se aparecer o `.ai`, `.svg` o
 `.eps` do designer, troque, porque vetor original sempre ganha de redesenho.
 
 No cabeçalho e no rodapé o símbolo está **embutido no HTML** (inline SVG), não
-referenciado por `<img>`. Se mudar a forma da marca, mude nas sete páginas: são dois lugares
+referenciado por `<img>`. Se mudar a forma da marca, mude nas oito páginas: são dois lugares
 em cada uma.
 
 ## Notas de manutenção
@@ -148,7 +198,7 @@ usar uma chave `"//"` como comentário. O deploy falha com
 em `/sobre.html` redirecionando para `/sobre`, e como todos os links internos do
 site usam `.html`, cada clique pagaria um salto extra. Desligado, o site se
 comporta igual local e em produção. Se um dia quiser URL sem `.html`, ligue
-`cleanUrls` **e** troque os `href` das sete páginas na mesma mudança. Meia
+`cleanUrls` **e** troque os `href` das oito páginas na mesma mudança. Meia
 troca é o pior dos dois mundos.
 
 - Os formulários validam no próprio JavaScript para as mensagens de erro saírem

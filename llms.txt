@@ -14,6 +14,7 @@ O roteiro padrão tem quatro aulas de 50 minutos, pensadas para o ensino médio:
 - [O projeto](https://horizontefinanceiro.ong.br/sobre.html): por que existe, o conteúdo das quatro aulas, como o projeto se organiza, perguntas frequentes
 - [Seja voluntário](https://horizontefinanceiro.ong.br/voluntarios.html): requisitos, compromisso, regras em sala e formulário de inscrição
 - [Para escolas](https://horizontefinanceiro.ong.br/escolas.html): o que a escola recebe, o que ela precisa oferecer e formulário de inscrição
+- [Artigos](https://horizontefinanceiro.ong.br/artigos.html): textos sobre dinheiro no dia a dia, escritos por voluntários do projeto
 - [Contato](https://horizontefinanceiro.ong.br/contato.html)
 - [Política de Privacidade](https://horizontefinanceiro.ong.br/privacidade.html)
 - [Termos de Uso](https://horizontefinanceiro.ong.br/termos.html)
