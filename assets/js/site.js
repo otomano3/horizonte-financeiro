@@ -50,7 +50,11 @@
             observador.unobserve(entrada.target);
           });
         },
-        { rootMargin: "0px 0px -10% 0px", threshold: 0.08 }
+        // Margem POSITIVA embaixo: expande a área de disparo para além da
+        // dobra, então o bloco já terminou de aparecer quando chega na
+        // tela. Com margem negativa, o conteúdo revelava tarde e a seção
+        // ficava um instante com buraco no lugar do texto.
+        { rootMargin: "0px 0px 20% 0px", threshold: 0 }
       );
       alvos.forEach(function (el) { observador.observe(el); });
     }

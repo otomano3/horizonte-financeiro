@@ -609,6 +609,10 @@ input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="
   display: flex;
   width: max-content;
   animation: marquee 38s linear infinite;
+  /* Avisa o navegador para promover a faixa a camada própria: sem isso ele
+     repinta uma tira de 3500px de largura a cada quadro, o que aparece
+     como engasgo na rolagem em máquina mais fraca. */
+  will-change: transform;
 }
 /* Pausa ao passar o mouse: quem quiser ler consegue */
 .marquee-band:hover .marquee,
