@@ -41,6 +41,15 @@
       // Navegador antigo ou quem pediu menos movimento: mostra tudo de uma vez
       alvos.forEach(function (el) { el.classList.add("is-in"); });
     } else {
+      // Rede de segurança: se por qualquer motivo o observador não disparar
+      // (rolagem programática, aba em segundo plano, restauração de posição
+      // pelo navegador, bug de motor), o conteúdo aparece sozinho depois de
+      // 2,5s. Conteúdo escondido para sempre é falha grave; animação que não
+      // acontece é só uma animação a menos.
+      setTimeout(function () {
+        alvos.forEach(function (el) { el.classList.add("is-in"); });
+      }, 2500);
+
       var observador = new IntersectionObserver(
         function (entradas) {
           entradas.forEach(function (entrada) {

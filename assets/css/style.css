@@ -275,31 +275,32 @@ p:last-child { margin-bottom: 0; }
   isolation: isolate;
 }
 
-/* Brilho dourado que respira devagar ao fundo. Substituiu a faixa
-   dourada fina que ficava na base do hero: agora quem fecha o hero é a
-   faixa rolante (.marquee-band), então a régua ali virava ruído. */
+/* Brilho dourado ao fundo. ESTÁTICO de propósito: antes ele tinha uma
+   animação infinita de 16s em transform e opacity num círculo de 75vw.
+   Isso repinta uma área enorme a cada quadro, para sempre, e era um dos
+   motivos da rolagem engasgar em máquina mais fraca. O visual parado é
+   praticamente o mesmo e não custa nada. */
 .hero::before {
   content: ""; position: absolute; z-index: -2;
   width: 75vw; aspect-ratio: 1; border-radius: 50%;
   top: -30%; right: -18%;
-  background: radial-gradient(circle, rgba(245,166,35,.28) 0%, rgba(245,166,35,0) 68%);
-  animation: heroGlow 16s ease-in-out infinite alternate;
-}
-@keyframes heroGlow {
-  from { transform: translate3d(0,0,0) scale(1); opacity: .8; }
-  to   { transform: translate3d(-7%, 6%, 0) scale(1.18); opacity: 1; }
+  background: radial-gradient(circle, rgba(245,166,35,.26) 0%, rgba(245,166,35,0) 68%);
 }
 
 /* Malha de linhas finas: dá textura ao fundo sem depender de imagem
-   (o projeto ainda não tem foto de sala de aula para usar aqui). */
+   (o projeto ainda não tem foto de sala de aula para usar aqui).
+
+   O desvanecimento nas bordas era feito com mask-image, que força
+   composição cara numa área do tamanho do hero e é justamente o tipo de
+   efeito que rende artefato de renderização em GPU antiga. Trocado por
+   um gradiente sobreposto, que dá o mesmo efeito de borda e é barato. */
 .hero::after {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background-image:
-    linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px);
-  background-size: 68px 68px;
-  -webkit-mask-image: radial-gradient(ellipse 85% 70% at 55% 40%, #000 35%, transparent 100%);
-          mask-image: radial-gradient(ellipse 85% 70% at 55% 40%, #000 35%, transparent 100%);
+    linear-gradient(to bottom, var(--navy) 0%, rgba(15,45,68,0) 22%, rgba(15,45,68,0) 78%, var(--navy) 100%),
+    linear-gradient(to right, rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size: 100% 100%, 68px 68px, 68px 68px;
 }
 
 .hero__grid {
@@ -329,27 +330,30 @@ p:last-child { margin-bottom: 0; }
   50%      { opacity: .45; transform: scale(.8); }
 }
 
-/* Título linha a linha: cada linha sobe de dentro de uma janela recortada.
-   O corte (overflow:hidden) só funciona se cada .hero__line ocupar UMA
-   linha visual. Por isso o corpo do h1 no hero é menor que o global: no
-   tamanho cheio, "se aprende na escola" quebrava em duas e o recorte
-   cortava metade do texto. */
+/* Título linha a linha, entrando em cascata.
+
+   A primeira versão fazia cada linha SUBIR de dentro de uma janela com
+   overflow:hidden. Bonito, e frágil: o recorte só funciona se a linha
+   ocupar exatamente uma linha visual. Em 900px e 1024px, larguras de
+   tablet e notebook pequeno, "Dinheiro também" quebrava em duas e o
+   recorte cortava metade do texto ao meio. Exigir que um texto nunca
+   quebre, em qualquer largura, é uma promessa impossível de manter.
+
+   Agora cada linha só aparece subindo um pouco, sem recorte. Se quebrar
+   em duas, o pior que acontece é a animação ficar menos elegante, em vez
+   de comer o texto. */
 .hero h1 {
-  font-size: clamp(2.1rem, 1.2rem + 3.6vw, 3.5rem);
-  line-height: 1.04;
+  font-size: clamp(2.1rem, 1.2rem + 3.4vw, 3.5rem);
+  line-height: 1.08;
 }
-.hero__line { display: block; overflow: hidden; }
+.hero__line { display: block; }
 .hero__line > span {
   display: block;
-  animation: heroRise 1s cubic-bezier(.16,1,.3,1) both;
+  animation: fadeUp .85s cubic-bezier(.16,1,.3,1) both;
 }
 .hero__line:nth-child(1) > span { animation-delay: .05s; }
 .hero__line:nth-child(2) > span { animation-delay: .15s; }
 .hero__line:nth-child(3) > span { animation-delay: .25s; }
-@keyframes heroRise {
-  from { transform: translateY(105%); }
-  to   { transform: translateY(0); }
-}
 
 .hero__lead, .hero .btn-row { animation: fadeUp .9s cubic-bezier(.16,1,.3,1) .45s both; }
 @keyframes fadeUp {
@@ -394,7 +398,11 @@ p:last-child { margin-bottom: 0; }
   100% { opacity: 1; transform: scale(1); }
 }
 
-@media (max-width: 820px) {
+/* Empilha a partir de 1080px, não de 820px. Entre essas duas larguras a
+   coluna de texto ficava com cerca de 450px para um título de 52px, o que
+   apertava o título sem necessidade: nessa faixa sobra largura de tela,
+   só estava mal distribuída. */
+@media (max-width: 1080px) {
   .hero__grid { grid-template-columns: 1fr; }
   .hero__brand { max-width: 340px; aspect-ratio: 16 / 10; }
 }
@@ -608,12 +616,14 @@ input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="
 .marquee {
   display: flex;
   width: max-content;
-  animation: marquee 38s linear infinite;
-  /* Avisa o navegador para promover a faixa a camada própria: sem isso ele
-     repinta uma tira de 3500px de largura a cada quadro, o que aparece
-     como engasgo na rolagem em máquina mais fraca. */
-  will-change: transform;
+  animation: marquee 34s linear infinite;
 }
+
+/* Sem `will-change: transform` aqui de propósito. Numa tira desse
+   comprimento ele manda o navegador manter uma camada gigante em memória
+   o tempo todo, e o remédio sai pior que a doença: em máquina fraca dá
+   engasgo e até conteúdo em branco. O caminho certo foi encurtar a
+   faixa (menos itens, texto mais curto), não prometer otimização. */
 /* Pausa ao passar o mouse: quem quiser ler consegue */
 .marquee-band:hover .marquee,
 .marquee-band:focus-within .marquee { animation-play-state: paused; }
@@ -717,7 +727,7 @@ a.card:hover h3 { color: var(--gold-ink); }
   }
   .js [data-reveal],
   .js [data-stagger] > * { opacity: 1 !important; transform: none !important; }
-  .hero__line > span { transform: none !important; }
+  .hero__line > span { opacity: 1 !important; transform: none !important; }
   .hero__lead, .hero .btn-row, .hero__brand { opacity: 1 !important; transform: none !important; }
   .hero__brand .hf-dome, .hero__brand .hf-dot { opacity: 1 !important; transform: none !important; }
   .hero__brand .hf-line { stroke-dashoffset: 0 !important; }
