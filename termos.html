@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.className += " js";</script>
 </head>
 <body>
 
@@ -54,7 +55,7 @@
 
   <div class="page-head">
     <div class="wrap">
-      <span class="eyebrow">Última atualização: agosto de 2026</span>
+      <span class="meta">Última atualização: agosto de 2026</span>
       <h1>Termos de Uso</h1>
       <p>
         As regras do projeto, em português. Curtas de propósito: não tem
@@ -67,7 +68,7 @@
     <div class="wrap">
       <div class="measure">
 
-        <h2>1. O que é o Horizonte Financeiro</h2>
+        <h2 data-reveal>1. O que é o Horizonte Financeiro</h2>
         <hr class="rule">
         <p>
           Um projeto voluntário e sem fins lucrativos que conecta profissionais
@@ -204,7 +205,7 @@
   </section>
 
   <section class="cta-band">
-    <div class="wrap cta-band__inner">
+    <div class="wrap cta-band__inner" data-reveal>
       <div>
         <h2>De acordo com as regras?</h2>
         <p>Então falta só se inscrever.</p>
@@ -217,6 +218,21 @@
   </section>
 
 </main>
+
+<div class="marquee-band">
+  <div class="marquee">
+    <div class="marquee__run">
+      <span class="marquee__item">Dinheiro também se aprende na escola</span>
+      <span class="marquee__item">Educação financeira em escola pública</span>
+      <span class="marquee__item">Projeto voluntário sem fins lucrativos</span>
+      </div>
+    <div class="marquee__run" aria-hidden="true">
+      <span class="marquee__item">Dinheiro também se aprende na escola</span>
+      <span class="marquee__item">Educação financeira em escola pública</span>
+      <span class="marquee__item">Projeto voluntário sem fins lucrativos</span>
+    </div>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="wrap">

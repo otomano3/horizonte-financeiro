@@ -91,14 +91,43 @@ p:last-child { margin-bottom: 0; }
 
 .lead { font-size: clamp(1.0625rem, 1rem + 0.5vw, 1.3125rem); line-height: 1.6; }
 
-.eyebrow {
-  font-family: var(--mono);
-  font-size: 0.8125rem;
-  letter-spacing: 0.18em;
+/* As antigas etiquetas .eyebrow (mono, caixa alta, acima de cada título)
+   foram removidas do site. As três classes abaixo existem porque seis
+   daquelas etiquetas carregavam informação de verdade, não decoração:
+   a data de atualização das páginas legais, a numeração das quatro aulas
+   e a categoria dos cartões de voluntário. */
+
+.meta {
+  font-size: 0.875rem;
+  color: var(--gray);
+  margin: 0 0 1rem;
+  display: block;
+}
+
+.card__label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--gold-ink);
-  margin: 0 0 0.75rem;
-  display: block;
+  margin-bottom: 0.7rem;
+}
+
+.card__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-family: var(--mono);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  flex: none;
 }
 
 /* Régua dourada abaixo dos títulos */
@@ -135,8 +164,9 @@ p:last-child { margin-bottom: 0; }
 .section--deep, .section--deep p, .section--deep li { color: var(--body-on-navy); }
 .section--navy h1, .section--navy h2, .section--navy h3,
 .section--deep h1, .section--deep h2, .section--deep h3 { color: var(--white-soft); }
-.section--navy .eyebrow, .section--deep .eyebrow { color: var(--gold); }
 .section--navy a, .section--deep a { color: var(--gold); }
+.section--navy .card__label, .section--deep .card__label { color: var(--gold); }
+.section--navy .meta, .section--deep .meta { color: var(--body-on-navy); }
 
 .skip {
   position: absolute; left: -9999px; top: 0; z-index: 100;
@@ -240,36 +270,129 @@ p:last-child { margin-bottom: 0; }
 
 .hero {
   background: var(--navy);
-  padding-block: clamp(3.5rem, 9vw, 7rem);
+  padding-block: clamp(4rem, 10vw, 8rem);
   position: relative; overflow: hidden;
+  isolation: isolate;
 }
+
+/* Brilho dourado que respira devagar ao fundo. Substituiu a faixa
+   dourada fina que ficava na base do hero: agora quem fecha o hero é a
+   faixa rolante (.marquee-band), então a régua ali virava ruído. */
+.hero::before {
+  content: ""; position: absolute; z-index: -2;
+  width: 75vw; aspect-ratio: 1; border-radius: 50%;
+  top: -30%; right: -18%;
+  background: radial-gradient(circle, rgba(245,166,35,.28) 0%, rgba(245,166,35,0) 68%);
+  animation: heroGlow 16s ease-in-out infinite alternate;
+}
+@keyframes heroGlow {
+  from { transform: translate3d(0,0,0) scale(1); opacity: .8; }
+  to   { transform: translate3d(-7%, 6%, 0) scale(1.18); opacity: 1; }
+}
+
+/* Malha de linhas finas: dá textura ao fundo sem depender de imagem
+   (o projeto ainda não tem foto de sala de aula para usar aqui). */
 .hero::after {
-  content: ""; position: absolute; inset: auto 0 0 0; height: 6px;
-  background: linear-gradient(90deg, var(--gold) 0%, var(--gold) 30%, var(--navy-line) 30%);
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 68px 68px;
+  -webkit-mask-image: radial-gradient(ellipse 85% 70% at 55% 40%, #000 35%, transparent 100%);
+          mask-image: radial-gradient(ellipse 85% 70% at 55% 40%, #000 35%, transparent 100%);
 }
+
 .hero__grid {
-  display: grid; grid-template-columns: 1.15fr 0.85fr;
-  gap: clamp(2rem, 5vw, 4rem); align-items: center;
+  display: grid; grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 5vw, 4.5rem); align-items: center;
 }
-.hero h1 { color: var(--white-soft); }
+.hero h1 { color: var(--white-soft); margin-bottom: 1.25rem; }
 .hero p { color: var(--body-on-navy); }
 
-/* O hero e a faixa de página têm fundo azul profundo mas não são .section--navy,
-   então precisam trocar o dourado escuro (feito para fundo claro) pelo dourado
-   da marca. Senão a etiqueta fica em 3:1 sobre o azul. */
-.hero .eyebrow, .page-head .eyebrow { color: var(--gold); }
+/* Selo acima do título */
+.hero__badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: rgba(245,166,35,.14);
+  border: 1px solid rgba(245,166,35,.4);
+  color: var(--gold);
+  font-size: 0.8125rem; font-weight: 600;
+  padding: 0.4rem 0.9rem; border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+.hero__badge::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--gold); flex: none;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .45; transform: scale(.8); }
+}
 
-/* Bloco da marca: o gradiente sugerido no guia (#0F2D44 → #F5A623)
-   com o símbolo em branco suave por cima. */
+/* Título linha a linha: cada linha sobe de dentro de uma janela recortada.
+   O corte (overflow:hidden) só funciona se cada .hero__line ocupar UMA
+   linha visual. Por isso o corpo do h1 no hero é menor que o global: no
+   tamanho cheio, "se aprende na escola" quebrava em duas e o recorte
+   cortava metade do texto. */
+.hero h1 {
+  font-size: clamp(2.1rem, 1.2rem + 3.6vw, 3.5rem);
+  line-height: 1.04;
+}
+.hero__line { display: block; overflow: hidden; }
+.hero__line > span {
+  display: block;
+  animation: heroRise 1s cubic-bezier(.16,1,.3,1) both;
+}
+.hero__line:nth-child(1) > span { animation-delay: .05s; }
+.hero__line:nth-child(2) > span { animation-delay: .15s; }
+.hero__line:nth-child(3) > span { animation-delay: .25s; }
+@keyframes heroRise {
+  from { transform: translateY(105%); }
+  to   { transform: translateY(0); }
+}
+
+.hero__lead, .hero .btn-row { animation: fadeUp .9s cubic-bezier(.16,1,.3,1) .45s both; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Bloco da marca: o gradiente do guia (#0F2D44 → #F5A623), e por cima o
+   símbolo se desenhando. O domo aparece, a linha de crescimento é traçada
+   e o ponto salta no fim. A marca é uma linha subindo, então animá-la
+   desenhando a si mesma é o movimento mais fiel à identidade. */
 .hero__brand {
   background: linear-gradient(125deg, var(--navy) 0%, #235070 45%, var(--gold) 100%);
-  border-radius: 14px;
+  border-radius: 16px;
   aspect-ratio: 4 / 3;
   display: grid;
   place-items: center;
   padding: clamp(1.5rem, 4vw, 2.75rem);
+  animation: fadeUp 1s cubic-bezier(.16,1,.3,1) .25s both;
 }
-.hero__brand svg { width: min(80%, 280px); color: var(--white-soft); }
+.hero__brand svg { width: min(80%, 280px); color: var(--white-soft); overflow: visible; }
+
+.hero__brand .hf-dome {
+  opacity: 0;
+  animation: fadeIn .9s ease .35s forwards;
+}
+.hero__brand .hf-line {
+  stroke-dasharray: 180;
+  stroke-dashoffset: 180;
+  animation: drawLine 1.6s cubic-bezier(.16,1,.3,1) .6s forwards;
+}
+.hero__brand .hf-dot {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pop .55s cubic-bezier(.34,1.56,.64,1) 2.15s forwards;
+}
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes drawLine { to { stroke-dashoffset: 0; } }
+@keyframes pop {
+  0%   { opacity: 0; transform: scale(0); }
+  100% { opacity: 1; transform: scale(1); }
+}
 
 @media (max-width: 820px) {
   .hero__grid { grid-template-columns: 1fr; }
@@ -284,6 +407,11 @@ p:last-child { margin-bottom: 0; }
 }
 .page-head h1 { color: var(--white-soft); font-size: clamp(2rem, 1.4rem + 3vw, 3.25rem); }
 .page-head p { color: var(--body-on-navy); max-width: 58ch; margin-bottom: 0; }
+
+/* O .page-head tem fundo azul mas não é .section--navy, então não herda a
+   troca de cor de texto. Com o cinza padrão, a data de atualização ficava
+   em 4,46:1 sobre o azul, logo abaixo do mínimo de 4,5:1 do WCAG AA. */
+.page-head .meta { color: var(--body-on-navy); }
 
 /* ---------- Grades e cartões ------------------------------------------ */
 
@@ -459,7 +587,135 @@ input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="
   font-size: 0.8125rem; color: var(--gray);
 }
 
+/* ---------- Faixa rolante --------------------------------------------- */
+
+/* Duas cópias idênticas do conteúdo dentro de .marquee, e a animação
+   desloca 50%. Quando a primeira cópia sai inteira de vista, a segunda
+   está exatamente na posição em que a primeira começou, então o laço não
+   tem emenda visível. Com uma cópia só, apareceria um vão a cada volta. */
+
+.marquee-band {
+  background: var(--navy-deep);
+  border-block: 1px solid var(--navy-line);
+  padding-block: 1.1rem;
+  overflow: hidden;
+}
+.marquee-band--gold {
+  background: var(--gold);
+  border-color: #d18d13;
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+/* Pausa ao passar o mouse: quem quiser ler consegue */
+.marquee-band:hover .marquee,
+.marquee-band:focus-within .marquee { animation-play-state: paused; }
+
+.marquee__run { display: flex; align-items: center; flex: none; }
+
+.marquee__item {
+  display: inline-flex; align-items: center; gap: 2.25rem;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white-soft);
+  white-space: nowrap;
+  padding-right: 2.25rem;
+}
+.marquee__item::after {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold); flex: none;
+}
+.marquee-band--gold .marquee__item { color: var(--navy-deep); font-weight: 500; }
+.marquee-band--gold .marquee__item::after { background: var(--navy-deep); }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---------- Revelação no scroll --------------------------------------- */
+
+/* O estado escondido só é aplicado quando há JavaScript (classe .js no
+   <html>, posta por um script no <head>). Sem isso, uma falha de JS
+   deixaria o site inteiro invisível em vez de só sem animação. */
+
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .75s cubic-bezier(0,0,.2,1), transform .75s cubic-bezier(0,0,.2,1);
+}
+.js [data-reveal].is-in { opacity: 1; transform: none; }
+
+/* Cascata: os filhos entram em sequência, não todos juntos */
+.js [data-stagger] > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .65s cubic-bezier(0,0,.2,1), transform .65s cubic-bezier(0,0,.2,1);
+}
+.js [data-stagger].is-in > * { opacity: 1; transform: none; }
+.js [data-stagger].is-in > *:nth-child(1) { transition-delay: .04s; }
+.js [data-stagger].is-in > *:nth-child(2) { transition-delay: .12s; }
+.js [data-stagger].is-in > *:nth-child(3) { transition-delay: .20s; }
+.js [data-stagger].is-in > *:nth-child(4) { transition-delay: .28s; }
+.js [data-stagger].is-in > *:nth-child(5) { transition-delay: .36s; }
+.js [data-stagger].is-in > *:nth-child(6) { transition-delay: .44s; }
+
+/* ---------- Micro-movimento -------------------------------------------- */
+
+.card {
+  transition: transform .28s cubic-bezier(.16,1,.3,1),
+              box-shadow .28s ease, border-color .28s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(18, 26, 36, .11);
+}
+.card--navy:hover {
+  border-color: var(--gold);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, .25);
+}
+/* Cartão que é link inteiro (listagem de artigos) */
+a.card { text-decoration: none; display: block; }
+a.card h3 { transition: color .2s ease; }
+a.card:hover h3 { color: var(--gold-ink); }
+
+.btn:hover { transform: translateY(-2px); }
+
+.stat { transition: border-color .28s ease, transform .28s cubic-bezier(.16,1,.3,1); }
+.stat:hover { border-color: var(--gold-soft); transform: translateY(-3px); }
+
+.steps > li { transition: border-color .28s ease; }
+.steps > li:hover { border-color: var(--gold); }
+
+.faq summary { transition: color .2s ease; }
+.faq summary:hover { color: var(--gold-ink); }
+.faq details[open] > div { animation: fadeUp .45s cubic-bezier(.16,1,.3,1) both; }
+
+.brand__mark { transition: transform .35s cubic-bezier(.16,1,.3,1); }
+.brand:hover .brand__mark { transform: translateY(-2px) rotate(-4deg); }
+
+/* ---------- Preferência por menos movimento --------------------------- */
+
+/* Desliga toda animação e transição, e depois força o estado final de
+   tudo que nasce escondido. Sem esses overrides, `animation: none`
+   cancelaria também o preenchimento final e o conteúdo ficaria invisível. */
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  * { transition: none !important; }
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  .js [data-reveal],
+  .js [data-stagger] > * { opacity: 1 !important; transform: none !important; }
+  .hero__line > span { transform: none !important; }
+  .hero__lead, .hero .btn-row, .hero__brand { opacity: 1 !important; transform: none !important; }
+  .hero__brand .hf-dome, .hero__brand .hf-dot { opacity: 1 !important; transform: none !important; }
+  .hero__brand .hf-line { stroke-dashoffset: 0 !important; }
+  .card:hover, .btn:hover, .stat:hover { transform: none !important; }
 }

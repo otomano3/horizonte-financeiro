@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.className += " js";</script>
 </head>
 <body>
 
@@ -54,7 +55,6 @@
 
   <div class="page-head">
     <div class="wrap">
-      <span class="eyebrow">Contato</span>
       <h1>Fala com a gente</h1>
       <p>
         Resposta em poucos dias. Se for para dar aula ou inscrever uma escola,
@@ -67,8 +67,7 @@
     <div class="wrap grid grid--sidebar">
 
       <div>
-        <span class="eyebrow">Mensagem</span>
-        <h2>Escreve aqui</h2>
+        <h2 data-reveal>Escreve aqui</h2>
         <hr class="rule">
 
         <form class="form-shell" data-tabela="hf_mensagens"
@@ -158,6 +157,21 @@
   </section>
 
 </main>
+
+<div class="marquee-band">
+  <div class="marquee">
+    <div class="marquee__run">
+      <span class="marquee__item">Dinheiro também se aprende na escola</span>
+      <span class="marquee__item">Educação financeira em escola pública</span>
+      <span class="marquee__item">Projeto voluntário sem fins lucrativos</span>
+      </div>
+    <div class="marquee__run" aria-hidden="true">
+      <span class="marquee__item">Dinheiro também se aprende na escola</span>
+      <span class="marquee__item">Educação financeira em escola pública</span>
+      <span class="marquee__item">Projeto voluntário sem fins lucrativos</span>
+    </div>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="wrap">

@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.className += " js";</script>
 </head>
 <body>
 
@@ -54,7 +55,6 @@
 
   <div class="page-head">
     <div class="wrap">
-      <span class="eyebrow">Seja voluntário</span>
       <h1>Uma aula por mês muda um semestre</h1>
       <p>
         Você explica juro para adulto todo dia. Explicar para um aluno de 16 anos
@@ -66,19 +66,19 @@
   <section class="section section--tight">
     <div class="wrap">
       <h2 class="sr-only">O que você precisa saber antes de se inscrever</h2>
-      <div class="grid grid--3">
+      <div class="grid grid--3" data-stagger>
         <div class="card card--gold">
-          <span class="eyebrow">Compromisso</span>
+          <span class="card__label">Compromisso</span>
           <h3>Uma aula por mês</h3>
           <p>Durante um semestre, na mesma turma. É o mínimo para o aluno criar vínculo e o máximo que a maioria consegue manter.</p>
         </div>
         <div class="card card--gold">
-          <span class="eyebrow">Preparo</span>
+          <span class="card__label">Preparo</span>
           <h3>Nada do zero</h3>
           <p>Roteiro, slide e atividade prontos, mais um treinamento inicial de duas horas online. Você adapta com seus exemplos.</p>
         </div>
         <div class="card card--gold">
-          <span class="eyebrow">Requisito</span>
+          <span class="card__label">Requisito</span>
           <h3>Sua área já basta</h3>
           <p>Trabalhar ou estudar na área financeira. Experiência com sala de aula não é necessária, quase ninguém tem.</p>
         </div>
@@ -90,8 +90,7 @@
     <div class="wrap grid grid--sidebar">
 
       <div>
-        <span class="eyebrow">Inscrição</span>
-        <h2>Preencha e a gente te chama</h2>
+        <h2 data-reveal>Preencha e a gente te chama</h2>
         <hr class="rule">
         <p>
           Respondemos em poucos dias com as escolas parceiras mais perto de você e as
@@ -288,6 +287,21 @@
   </section>
 
 </main>
+
+<div class="marquee-band">
+  <div class="marquee">
+    <div class="marquee__run">
+      <span class="marquee__item">Dinheiro também se aprende na escola</span>
+      <span class="marquee__item">Educação financeira em escola pública</span>
+      <span class="marquee__item">Projeto voluntário sem fins lucrativos</span>
+      </div>
+    <div class="marquee__run" aria-hidden="true">
+      <span class="marquee__item">Dinheiro também se aprende na escola</span>
+      <span class="marquee__item">Educação financeira em escola pública</span>
+      <span class="marquee__item">Projeto voluntário sem fins lucrativos</span>
+    </div>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="wrap">

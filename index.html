@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.className += " js";</script>
 </head>
 <body>
 
@@ -56,10 +57,13 @@
   <section class="hero">
     <div class="wrap hero__grid">
       <div>
-        <span class="eyebrow">Educação financeira em escolas públicas</span>
-        <h1>Dinheiro também se aprende na escola</h1>
-        <hr class="rule">
-        <p class="lead measure">
+        <span class="hero__badge">Projeto voluntário e gratuito</span>
+        <h1>
+          <span class="hero__line"><span>Dinheiro também</span></span>
+          <span class="hero__line"><span>se aprende</span></span>
+          <span class="hero__line"><span>na escola</span></span>
+        </h1>
+        <p class="lead measure hero__lead">
           O Horizonte Financeiro leva profissionais do mercado financeiro para dentro
           da sala de aula da rede pública. Aula gratuita, linguagem de gente, exemplos
           do dia a dia de quem vive de dinheiro.
@@ -71,20 +75,40 @@
       </div>
       <div class="hero__brand" aria-hidden="true">
         <svg viewBox="0 0 135 96" aria-hidden="true" focusable="false">
-          <path d="M6.5 56.5A53.5 53.5 0 0 1 113.5 56.5Z" fill="currentColor"></path>
-          <path d="M6.5 89 34 70 52 82 80 49 96 64 127.5 17" fill="none" stroke="currentColor"
+          <path class="hf-dome" d="M6.5 56.5A53.5 53.5 0 0 1 113.5 56.5Z" fill="currentColor"></path>
+          <path class="hf-line" d="M6.5 89 34 70 52 82 80 49 96 64 127.5 17" fill="none" stroke="currentColor"
                 stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"></path>
-          <circle cx="127.5" cy="17" r="6.2" fill="currentColor"></circle>
+          <circle class="hf-dot" cx="127.5" cy="17" r="6.2" fill="currentColor"></circle>
         </svg>
       </div>
     </div>
   </section>
 
+  <div class="marquee-band marquee-band--gold">
+    <div class="marquee">
+    <div class="marquee__run">
+      <span class="marquee__item">Aula gratuita</span>
+      <span class="marquee__item">Escola pública</span>
+      <span class="marquee__item">Sem custo para o aluno</span>
+      <span class="marquee__item">Quatro aulas de 50 minutos</span>
+      <span class="marquee__item">Voluntário fixo por turma</span>
+      <span class="marquee__item">Sem indicação de produto</span>
+      </div>
+    <div class="marquee__run" aria-hidden="true">
+      <span class="marquee__item">Aula gratuita</span>
+      <span class="marquee__item">Escola pública</span>
+      <span class="marquee__item">Sem custo para o aluno</span>
+      <span class="marquee__item">Quatro aulas de 50 minutos</span>
+      <span class="marquee__item">Voluntário fixo por turma</span>
+      <span class="marquee__item">Sem indicação de produto</span>
+      </div>
+    </div>
+  </div>
+
   <!-- O problema -->
   <section class="section">
     <div class="wrap">
-      <span class="eyebrow">01 / O problema</span>
-      <h2>Ninguém ensina, e a conta chega igual</h2>
+      <h2 data-reveal>Ninguém ensina, e a conta chega igual</h2>
       <hr class="rule">
       <div class="grid grid--sidebar">
         <div>
@@ -124,10 +148,9 @@
   <!-- Como funciona -->
   <section class="section section--navy">
     <div class="wrap">
-      <span class="eyebrow">02 / Como funciona</span>
-      <h2>Três passos, nada de burocracia</h2>
+      <h2 data-reveal>Três passos, nada de burocracia</h2>
       <hr class="rule">
-      <ol class="steps">
+      <ol class="steps" data-stagger>
         <li>
           <h3>O voluntário se inscreve</h3>
           <p>
@@ -162,8 +185,7 @@
   <!-- Números -->
   <section class="section section--soft">
     <div class="wrap">
-      <span class="eyebrow">03 / A proposta</span>
-      <h2>O combinado, em números</h2>
+      <h2 data-reveal>O combinado, em números</h2>
       <hr class="rule">
       <!-- ==========================================================
            Estes quatro números descrevem a PROPOSTA, não resultado.
@@ -176,7 +198,7 @@
            métricas diz "não saímos do papel", e é a primeira coisa
            que uma coordenadora repara.
            ========================================================== -->
-      <div class="grid grid--4">
+      <div class="grid grid--4" data-stagger>
         <div class="stat">
           <span class="stat__num">4</span>
           <p class="stat__label">aulas no roteiro completo</p>
@@ -206,8 +228,7 @@
   <section class="section">
     <div class="wrap grid grid--sidebar">
       <div>
-        <span class="eyebrow">04 / Quem dá aula</span>
-        <h2>Você já sabe o suficiente</h2>
+        <h2 data-reveal>Você já sabe o suficiente</h2>
         <hr class="rule">
         <p class="lead">
           A dúvida mais comum de quem se inscreve é se sabe o bastante para ensinar.
@@ -241,7 +262,7 @@
 
   <!-- Faixa de chamada -->
   <section class="cta-band">
-    <div class="wrap cta-band__inner">
+    <div class="wrap cta-band__inner" data-reveal>
       <div>
         <h2>Quer levar o projeto para uma escola?</h2>
         <p>
@@ -254,6 +275,21 @@
   </section>
 
 </main>
+
+<div class="marquee-band">
+  <div class="marquee">
+    <div class="marquee__run">
+      <span class="marquee__item">Dinheiro também se aprende na escola</span>
+      <span class="marquee__item">Educação financeira em escola pública</span>
+      <span class="marquee__item">Projeto voluntário sem fins lucrativos</span>
+      </div>
+    <div class="marquee__run" aria-hidden="true">
+      <span class="marquee__item">Dinheiro também se aprende na escola</span>
+      <span class="marquee__item">Educação financeira em escola pública</span>
+      <span class="marquee__item">Projeto voluntário sem fins lucrativos</span>
+    </div>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="wrap">

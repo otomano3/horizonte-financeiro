@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.className += " js";</script>
 </head>
 <body>
 
@@ -54,7 +55,6 @@
 
   <div class="page-head">
     <div class="wrap">
-      <span class="eyebrow">O projeto</span>
       <h1>O que é o Horizonte Financeiro</h1>
       <p>
         Um projeto voluntário que conecta quem trabalha com dinheiro a quem nunca
@@ -66,8 +66,7 @@
   <section class="section">
     <div class="wrap grid grid--sidebar">
       <div>
-        <span class="eyebrow">Por que existe</span>
-        <h2>Uma lacuna que ninguém preenche por acaso</h2>
+        <h2 data-reveal>Uma lacuna que ninguém preenche por acaso</h2>
         <hr class="rule">
         <p class="lead">
           Educação financeira aparece na Base Nacional Comum Curricular como tema
@@ -100,16 +99,15 @@
 
   <section class="section section--navy">
     <div class="wrap">
-      <span class="eyebrow">O que é dado em aula</span>
-      <h2>Quatro encontros, quatro decisões da vida real</h2>
+      <h2 data-reveal>Quatro encontros, quatro decisões da vida real</h2>
       <hr class="rule">
       <p class="lead measure">
         O roteiro padrão tem quatro aulas de 50 minutos, pensadas para o ensino médio.
         A escola pode pegar as quatro ou escolher só as que couberem no calendário.
       </p>
-      <div class="grid grid--2" style="margin-top:2.5rem;">
+      <div class="grid grid--2" data-stagger style="margin-top:2.5rem;">
         <div class="card card--navy">
-          <span class="eyebrow">Aula 01</span>
+          <span class="card__num">01</span>
           <h3>Para onde vai o seu dinheiro</h3>
           <p>
             Orçamento na prática, com o salário que o aluno vai ganhar no primeiro
@@ -118,7 +116,7 @@
           </p>
         </div>
         <div class="card card--navy">
-          <span class="eyebrow">Aula 02</span>
+          <span class="card__num">02</span>
           <h3>Juro é tempo cobrando</h3>
           <p>
             Como o parcelamento sem juros tem juros, por que o rotativo do cartão é o
@@ -127,7 +125,7 @@
           </p>
         </div>
         <div class="card card--navy">
-          <span class="eyebrow">Aula 03</span>
+          <span class="card__num">03</span>
           <h3>Golpe, aposta e promessa fácil</h3>
           <p>
             Como reconhecer pirâmide, aposta esportiva e curso milagroso. A regra que
@@ -135,7 +133,7 @@
           </p>
         </div>
         <div class="card card--navy">
-          <span class="eyebrow">Aula 04</span>
+          <span class="card__num">04</span>
           <h3>O que existe além da poupança</h3>
           <p>
             Conta, Pix, CDB, Tesouro Direto e reserva de emergência explicados sem
@@ -154,10 +152,9 @@
 
   <section class="section">
     <div class="wrap">
-      <span class="eyebrow">Como o projeto se organiza</span>
-      <h2>Simples de propósito</h2>
+      <h2 data-reveal>Simples de propósito</h2>
       <hr class="rule">
-      <div class="grid grid--3">
+      <div class="grid grid--3" data-stagger>
         <div class="card">
           <h3>Sem dinheiro no meio</h3>
           <p>
@@ -185,10 +182,9 @@
 
   <section class="section section--soft">
     <div class="wrap">
-      <span class="eyebrow">Perguntas frequentes</span>
-      <h2>O que costumam perguntar</h2>
+      <h2 data-reveal>O que costumam perguntar</h2>
       <hr class="rule">
-      <div class="faq">
+      <div class="faq" data-stagger>
         <details>
           <summary>O projeto é ligado a algum banco ou corretora?</summary>
           <div>
@@ -235,7 +231,7 @@
   </section>
 
   <section class="cta-band">
-    <div class="wrap cta-band__inner">
+    <div class="wrap cta-band__inner" data-reveal>
       <div>
         <h2>Dois caminhos para entrar</h2>
         <p>Dar aula como voluntário ou trazer o projeto para a sua escola.</p>
@@ -248,6 +244,21 @@
   </section>
 
 </main>
+
+<div class="marquee-band">
+  <div class="marquee">
+    <div class="marquee__run">
+      <span class="marquee__item">Dinheiro também se aprende na escola</span>
+      <span class="marquee__item">Educação financeira em escola pública</span>
+      <span class="marquee__item">Projeto voluntário sem fins lucrativos</span>
+      </div>
+    <div class="marquee__run" aria-hidden="true">
+      <span class="marquee__item">Dinheiro também se aprende na escola</span>
+      <span class="marquee__item">Educação financeira em escola pública</span>
+      <span class="marquee__item">Projeto voluntário sem fins lucrativos</span>
+    </div>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="wrap">

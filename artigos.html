@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.className += " js";</script>
 </head>
 <body>
 
@@ -54,7 +55,6 @@
 
   <div class="page-head">
     <div class="wrap">
-      <span class="eyebrow">Artigos</span>
       <h1>Dinheiro no dia a dia, por escrito</h1>
       <p>
         Textos escritos por voluntários do projeto. Mesma ideia das aulas: sem
@@ -66,8 +66,7 @@
 
   <section class="section">
     <div class="wrap">
-      <span class="eyebrow">Em breve</span>
-      <h2>Os primeiros artigos estão a caminho</h2>
+      <h2 data-reveal>Os primeiros artigos estão a caminho</h2>
       <hr class="rule">
       <p class="lead measure">
         Esta seção ainda está vazia porque o projeto acabou de abrir espaço para
@@ -78,9 +77,9 @@
            Quando o primeiro artigo for publicado, troque o <p class="lead">
            acima por um grid de cards, um por artigo, seguindo este modelo:
 
-           <div class="grid grid--3">
+           <div class="grid grid--3" data-stagger>
              <a class="card" href="artigos/nome-do-artigo.html">
-               <span class="eyebrow">22 ago 2026 · por Nome do Autor</span>
+               <span class="meta">22 ago 2026 · por Nome do Autor</span>
                <h3>Título do artigo</h3>
                <p>Resumo de uma ou duas linhas do que o texto aborda.</p>
              </a>
@@ -94,7 +93,7 @@
   </section>
 
   <section class="cta-band">
-    <div class="wrap cta-band__inner">
+    <div class="wrap cta-band__inner" data-reveal>
       <div>
         <h2>Quer escrever para o Horizonte?</h2>
         <p>
@@ -107,6 +106,21 @@
   </section>
 
 </main>
+
+<div class="marquee-band">
+  <div class="marquee">
+    <div class="marquee__run">
+      <span class="marquee__item">Dinheiro também se aprende na escola</span>
+      <span class="marquee__item">Educação financeira em escola pública</span>
+      <span class="marquee__item">Projeto voluntário sem fins lucrativos</span>
+      </div>
+    <div class="marquee__run" aria-hidden="true">
+      <span class="marquee__item">Dinheiro também se aprende na escola</span>
+      <span class="marquee__item">Educação financeira em escola pública</span>
+      <span class="marquee__item">Projeto voluntário sem fins lucrativos</span>
+    </div>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="wrap">

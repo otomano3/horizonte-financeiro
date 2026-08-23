@@ -29,6 +29,33 @@
     });
   }
 
+  /* ---------- Revelação no scroll -------------------------------------- */
+
+  var alvos = document.querySelectorAll("[data-reveal], [data-stagger]");
+
+  if (alvos.length) {
+    var semMovimento =
+      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (semMovimento || !("IntersectionObserver" in window)) {
+      // Navegador antigo ou quem pediu menos movimento: mostra tudo de uma vez
+      alvos.forEach(function (el) { el.classList.add("is-in"); });
+    } else {
+      var observador = new IntersectionObserver(
+        function (entradas) {
+          entradas.forEach(function (entrada) {
+            if (!entrada.isIntersecting) return;
+            entrada.target.classList.add("is-in");
+            // Revela uma vez só: não some de novo ao rolar de volta
+            observador.unobserve(entrada.target);
+          });
+        },
+        { rootMargin: "0px 0px -10% 0px", threshold: 0.08 }
+      );
+      alvos.forEach(function (el) { observador.observe(el); });
+    }
+  }
+
   /* ---------- Preenche canais de contato vindos do config -------------- */
 
   document.querySelectorAll("[data-hf-instagram]").forEach(function (el) {
