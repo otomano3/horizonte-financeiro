@@ -6,7 +6,6 @@ framework. Abrir o `index.html` no navegador já funciona.
 ```
 index.html          Início
 sobre.html          O projeto, as 4 aulas, perguntas frequentes
-voluntarios.html    Inscrição de voluntário  → tabela hf_voluntarios
 escolas.html        Inscrição de escola      → tabela hf_escolas
 contato.html        Mensagem livre           → tabela hf_mensagens
 privacidade.html    Política de Privacidade (LGPD)
@@ -14,7 +13,7 @@ termos.html         Termos de Uso
 artigos.html        Listagem de artigos (vazia até o primeiro ser publicado)
 artigos/<slug>.html cada artigo publicado, um arquivo por texto
 
-sitemap.xml         8 URLs, para o Google
+sitemap.xml         7 URLs, para o Google
 robots.txt          libera tudo, aponta o sitemap
 llms.txt            resumo do projeto para modelos de linguagem
 
@@ -36,6 +35,21 @@ próprio, um comando atualiza os três:
 ```bash
 grep -rl horizontefinanceiro.ong.br . | xargs sed -i 's|horizontefinanceiro.ong.br|seu-dominio.com.br|g'
 ```
+
+## Mudança de modelo, agosto de 2026
+
+O projeto deixou de recrutar voluntário por inscrição aberta: as aulas passaram
+a ser dadas pela equipe própria. Por isso `voluntarios.html` foi removida, o
+botão principal do menu virou **Inscrever escola** e a escola passou a ser o
+único caminho de conversão do site.
+
+O caráter voluntário do projeto **não** mudou: a equipe atua sem remuneração,
+nos termos da Lei 9.608/1998, então "projeto voluntário sem fins lucrativos", o
+rodapé e a seção 3 dos Termos continuam valendo. O que saiu foi o recrutamento,
+não o voluntariado.
+
+A tabela `hf_voluntarios` continua no banco e no `schema.sql`, sem receber
+escrita nenhuma. Está documentada como encerrada.
 
 ## Publicar um artigo novo
 
@@ -61,7 +75,7 @@ Passo a passo para quem estiver publicando:
    - O `<h1>` e o texto do artigo
 
 3. **Inclua uma linha de autoria** logo abaixo do `<h1>`, dentro do
-   `page-head`, no formato `<span class="eyebrow">22 ago 2026 · por Fulano de
+   `page-head`, no formato `<span class="meta">22 ago 2026 · por Fulano de
    Tal, analista de crédito</span>`. Data de publicação e uma linha curta de
    quem é o autor, sem precisar de foto nem bio longa.
 
@@ -88,7 +102,7 @@ está feito.
 ## 1. O banco, já conectado
 
 Projeto Supabase `febhmuwmchfnmcnckpvj`, na organização `otomano3`, região
-São Paulo. As três tabelas e as políticas de RLS já foram criadas com
+São Paulo. As tabelas e as políticas de RLS já foram criadas com
 `supabase/schema.sql`, e as chaves já estão em `assets/js/config.js`.
 
 Testado de ponta a ponta: os três formulários gravam, e a chave pública é
@@ -104,8 +118,8 @@ no navegador. Quem protege os dados é o RLS: com essa chave só é possível
 **inserir** inscrições, nunca ler, editar ou apagar. **Nunca** coloque a
 `service_role` key nesse arquivo.
 
-Para ver as inscrições: Supabase → **Table Editor** → `hf_voluntarios`,
-`hf_escolas`, `hf_mensagens`. Dá para exportar CSV direto de lá.
+Para ver as inscrições: Supabase → **Table Editor** → `hf_escolas` e
+`hf_mensagens`. Dá para exportar CSV direto de lá.
 
 ## 2. Publicar na Vercel
 
@@ -128,7 +142,7 @@ Cada `git push` na branch principal republica o site automaticamente.
 
 - [ ] **Trocar os números da home quando houver histórico.** A seção "O
       combinado, em números" hoje descreve a *proposta* (4 aulas, 50 min, R$ 0,
-      1 voluntário por turma) porque o projeto ainda não deu aula. Quando
+      1 educador por turma) porque o projeto ainda não deu aula. Quando
       houver aulas dadas e alunos alcançados, troque por esses. Número de
       resultado convence mais que número de oferta. Não coloque métrica de
       resultado zerada ali.
@@ -136,8 +150,9 @@ Cada `git push` na branch principal republica o site automaticamente.
       "duas escolas públicas já confirmaram a parceria". Mude quando mudar.
 - [ ] **Conferir o texto das 4 aulas** em `sobre.html`. Foi escrito a partir dos
       slides do projeto; ajuste para o que vocês realmente dão.
-- [ ] **Apagar as 3 linhas de teste** das tabelas, se ainda estiverem lá. Elas
-      começam com `TESTE`, dá para filtrar no Table Editor.
+- [ ] **Apagar as inscrições de voluntário** da tabela `hf_voluntarios`. O
+      programa foi encerrado em agosto de 2026 e o dado perdeu a finalidade que
+      justificava guardá-lo.
 - [x] ~~Conectar o banco e testar os formulários~~
 - [x] ~~Definir o e-mail de contato~~: `horizonte.financeiro.contato@gmail.com`
 - [x] ~~Imagem de compartilhamento~~: `assets/img/og.png`, 1200×630
@@ -180,7 +195,7 @@ foram medidas na imagem, mas não são o original. Se aparecer o `.ai`, `.svg` o
 `.eps` do designer, troque, porque vetor original sempre ganha de redesenho.
 
 No cabeçalho e no rodapé o símbolo está **embutido no HTML** (inline SVG), não
-referenciado por `<img>`. Se mudar a forma da marca, mude nas oito páginas: são dois lugares
+referenciado por `<img>`. Se mudar a forma da marca, mude nas sete páginas: são dois lugares
 em cada uma.
 
 ## Notas de manutenção
@@ -198,7 +213,7 @@ usar uma chave `"//"` como comentário. O deploy falha com
 em `/sobre.html` redirecionando para `/sobre`, e como todos os links internos do
 site usam `.html`, cada clique pagaria um salto extra. Desligado, o site se
 comporta igual local e em produção. Se um dia quiser URL sem `.html`, ligue
-`cleanUrls` **e** troque os `href` das oito páginas na mesma mudança. Meia
+`cleanUrls` **e** troque os `href` das sete páginas na mesma mudança. Meia
 troca é o pior dos dois mundos.
 
 - Os formulários validam no próprio JavaScript para as mensagens de erro saírem

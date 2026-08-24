@@ -92,10 +92,9 @@ p:last-child { margin-bottom: 0; }
 .lead { font-size: clamp(1.0625rem, 1rem + 0.5vw, 1.3125rem); line-height: 1.6; }
 
 /* As antigas etiquetas .eyebrow (mono, caixa alta, acima de cada título)
-   foram removidas do site. As três classes abaixo existem porque seis
-   daquelas etiquetas carregavam informação de verdade, não decoração:
-   a data de atualização das páginas legais, a numeração das quatro aulas
-   e a categoria dos cartões de voluntário. */
+   foram removidas do site. As duas classes abaixo existem porque algumas
+   daquelas etiquetas carregavam informação de verdade, não decoração: a
+   data de atualização das páginas legais e a numeração das quatro aulas. */
 
 .meta {
   font-size: 0.875rem;
@@ -104,15 +103,6 @@ p:last-child { margin-bottom: 0; }
   display: block;
 }
 
-.card__label {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--gold-ink);
-  margin-bottom: 0.7rem;
-}
 
 .card__num {
   display: inline-flex;
@@ -165,7 +155,6 @@ p:last-child { margin-bottom: 0; }
 .section--navy h1, .section--navy h2, .section--navy h3,
 .section--deep h1, .section--deep h2, .section--deep h3 { color: var(--white-soft); }
 .section--navy a, .section--deep a { color: var(--gold); }
-.section--navy .card__label, .section--deep .card__label { color: var(--gold); }
 .section--navy .meta, .section--deep .meta { color: var(--body-on-navy); }
 
 .skip {
@@ -216,7 +205,7 @@ p:last-child { margin-bottom: 0; }
 .nav a[aria-current="page"] { color: var(--white-soft); border-bottom-color: var(--gold); }
 .nav .btn, .nav .btn:hover, .nav .btn[aria-current="page"] { border-bottom: 0; }
 
-/* Na página do voluntário o próprio botão carrega aria-current, e
+/* Na página de escolas o próprio botão do menu carrega aria-current, e
    `.nav a[aria-current]` é mais específico que `.btn.btn--gold`. */
 .nav .btn--gold[aria-current="page"] { color: var(--navy-deep); }
 .nav .btn--ghost[aria-current="page"] { color: var(--white-soft); }

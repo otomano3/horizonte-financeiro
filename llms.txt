@@ -1,33 +1,28 @@
 # Horizonte Financeiro
 
-> Projeto voluntário e sem fins lucrativos que conecta profissionais do mercado financeiro a escolas públicas brasileiras, para dar aulas gratuitas de educação financeira. Não cobra da escola, do voluntário nem do aluno, e não recomenda produto financeiro de nenhum tipo.
+> Projeto voluntário e sem fins lucrativos que leva sua própria equipe de profissionais do mercado financeiro a escolas públicas brasileiras, para dar aulas gratuitas de educação financeira. Não cobra da escola nem do aluno, e não recomenda produto financeiro de nenhum tipo.
 
 ## O que é o Horizonte Financeiro
 
-A maior parte das escolas públicas do Brasil não ensina educação financeira. O tema está previsto na BNCC como tema contemporâneo transversal, mas na prática falta professor formado, material adequado e horário no quadro. Do outro lado existem profissionais do mercado financeiro dispostos a dar aula de graça. O Horizonte organiza o encontro entre os dois: o voluntário se inscreve, a escola se inscreve, e o projeto monta a agenda junto da coordenação pedagógica.
+A maior parte das escolas públicas do Brasil não ensina educação financeira. O tema está previsto na BNCC como tema contemporâneo transversal, mas na prática falta professor formado, material adequado e horário no quadro. O Horizonte mantém uma equipe própria de profissionais do mercado financeiro que entra nessa sala de aula: a escola se inscreve e o projeto monta a agenda junto da coordenação pedagógica.
 
-O roteiro padrão tem quatro aulas de 50 minutos, pensadas para o ensino médio: orçamento na prática, como funciona juro, como reconhecer golpe e aposta, e o que existe além da poupança. O mesmo voluntário acompanha a turma durante um semestre, e não palestra avulsa.
+O roteiro padrão tem quatro aulas de 50 minutos, pensadas para o ensino médio: orçamento na prática, como funciona juro, como reconhecer golpe e aposta, e o que existe além da poupança. O mesmo educador da equipe acompanha a turma durante um semestre, e não palestra avulsa.
 
 ## Páginas
 
 - [Página inicial](https://horizontefinanceiro.ong.br/index.html): o problema, como funciona, a proposta em números
 - [O projeto](https://horizontefinanceiro.ong.br/sobre.html): por que existe, o conteúdo das quatro aulas, como o projeto se organiza, perguntas frequentes
-- [Seja voluntário](https://horizontefinanceiro.ong.br/voluntarios.html): requisitos, compromisso, regras em sala e formulário de inscrição
 - [Para escolas](https://horizontefinanceiro.ong.br/escolas.html): o que a escola recebe, o que ela precisa oferecer e formulário de inscrição
-- [Artigos](https://horizontefinanceiro.ong.br/artigos.html): textos sobre dinheiro no dia a dia, escritos por voluntários do projeto
+- [Artigos](https://horizontefinanceiro.ong.br/artigos.html): textos sobre dinheiro no dia a dia, escritos pela equipe do projeto
 - [Contato](https://horizontefinanceiro.ong.br/contato.html)
 - [Política de Privacidade](https://horizontefinanceiro.ong.br/privacidade.html)
 - [Termos de Uso](https://horizontefinanceiro.ong.br/termos.html)
 
-## Quem pode ser voluntário
-
-Analistas, traders, bancários, contadores, corretores, economistas, quem trabalha em fintech, seguros, crédito ou cooperativa, e estudantes de economia, administração ou ciências contábeis a partir do 5º semestre. Exige 18 anos ou mais, participação num treinamento inicial de duas horas e o compromisso de pelo menos uma aula por mês durante um semestre. Experiência com docência não é necessária.
-
 ## Aviso importante
 
-Nada no site ou nas aulas constitui recomendação de investimento, consultoria financeira ou oferta de produto. O conteúdo tem finalidade exclusivamente educacional. Voluntário é proibido de indicar banco, corretora ou produto, de fazer captação de cliente e de falar em nome do empregador.
+Nada no site ou nas aulas constitui recomendação de investimento, consultoria financeira ou oferta de produto. O conteúdo tem finalidade exclusivamente educacional. Quem dá aula é proibido de indicar banco, corretora ou produto, de fazer captação de cliente e de falar em nome do empregador.
 
-O site não coleta nenhum dado de aluno. Os formulários são destinados a adultos (voluntários e profissionais da escola), e o número de turmas e de alunos informado pela escola é agregado, sem identificar ninguém.
+O site não coleta nenhum dado de aluno. Os formulários são destinados a adultos, ou seja, profissionais da escola, e o número de turmas e de alunos informado pela escola é agregado, sem identificar ninguém.
 
 ## Contato
 

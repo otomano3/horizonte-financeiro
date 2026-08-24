@@ -15,11 +15,20 @@
 -- Sobre o prefixo hf_: existe para as tabelas do Horizonte Financeiro poderem
 -- conviver no mesmo banco de outro projeto sem confusão. Num projeto Supabase
 -- exclusivo do Horizonte, o prefixo pode cair, mas aí lembre de ajustar o
--- atributo data-tabela dos <form> nas páginas voluntarios/escolas/contato.
+-- atributo data-tabela dos <form> nas páginas escolas/contato.
 -- ============================================================================
 
 
 -- ---------------------------------------------------------------- voluntários
+--
+-- PROGRAMA ENCERRADO em agosto de 2026. O Horizonte passou a dar aula com
+-- equipe própria e fechou a inscrição aberta de voluntário, então
+-- voluntarios.html saiu do site e nada mais escreve nesta tabela.
+--
+-- O create continua aqui por ser idempotente e para o histórico do schema
+-- ficar legível. Se for reabrir inscrição algum dia, a estrutura já existe.
+-- Se decidir apagar de vez, lembre de remover também as políticas de RLS e
+-- os índices logo abaixo.
 
 create table if not exists public.hf_voluntarios (
   id              uuid primary key default gen_random_uuid(),
