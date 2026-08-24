@@ -150,9 +150,9 @@ Cada `git push` na branch principal republica o site automaticamente.
       "duas escolas públicas já confirmaram a parceria". Mude quando mudar.
 - [ ] **Conferir o texto das 4 aulas** em `sobre.html`. Foi escrito a partir dos
       slides do projeto; ajuste para o que vocês realmente dão.
-- [ ] **Apagar as inscrições de voluntário** da tabela `hf_voluntarios`. O
-      programa foi encerrado em agosto de 2026 e o dado perdeu a finalidade que
-      justificava guardá-lo.
+- [x] ~~Apagar as inscrições de voluntário da tabela `hf_voluntarios`~~ —
+      feito pelo Thomas no SQL Editor em 2026-08-24, depois do encerramento do
+      programa. A tabela continua existindo, vazia e sem receber escrita.
 - [x] ~~Conectar o banco e testar os formulários~~
 - [x] ~~Definir o e-mail de contato~~: `horizonte.financeiro.contato@gmail.com`
 - [x] ~~Imagem de compartilhamento~~: `assets/img/og.png`, 1200×630
