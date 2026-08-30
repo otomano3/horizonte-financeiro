@@ -15,3 +15,6 @@ config.local.js
 
 .vercel
 .env*
+
+# Saida da ferramenta graphify: cache local, nao e parte do site
+graphify-out/
