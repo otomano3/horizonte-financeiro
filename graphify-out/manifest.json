@@ -1,0 +1,116 @@
+{
+  "assets/js/config.js": {
+    "mtime": 1787334447.0535712,
+    "seen": 1787654269.86679,
+    "ast_hash": "7ac2bc2efb38c6f970850bd5e7fefaae",
+    "semantic_hash": "7ac2bc2efb38c6f970850bd5e7fefaae"
+  },
+  "assets/js/site.js": {
+    "mtime": 1787525973.8742468,
+    "seen": 1787654269.866795,
+    "ast_hash": "e6c1ca37580af262bb89523dfbf24860",
+    "semantic_hash": "e6c1ca37580af262bb89523dfbf24860"
+  },
+  "supabase/schema.sql": {
+    "mtime": 1787584391.5764356,
+    "seen": 1787654269.8667967,
+    "ast_hash": "9387cc461b70fc5334c3784737f30db0",
+    "semantic_hash": "9387cc461b70fc5334c3784737f30db0"
+  },
+  "vercel.json": {
+    "mtime": 1787333970.381045,
+    "seen": 1787654269.866798,
+    "ast_hash": "70a850efa29f19e6392b2fbb9d3fad6c",
+    "semantic_hash": "70a850efa29f19e6392b2fbb9d3fad6c"
+  },
+  "README.md": {
+    "mtime": 1787585181.6198926,
+    "seen": 1787654269.8667986,
+    "ast_hash": "c8d95e534e95f0c0160da990a8535129",
+    "semantic_hash": "c8d95e534e95f0c0160da990a8535129"
+  },
+  "artigos.html": {
+    "mtime": 1787584370.4729915,
+    "seen": 1787654269.8667994,
+    "ast_hash": "d050bc4cfcedc96426f56de3450d0286",
+    "semantic_hash": "d050bc4cfcedc96426f56de3450d0286"
+  },
+  "contato.html": {
+    "mtime": 1787584268.8270917,
+    "seen": 1787654269.8668003,
+    "ast_hash": "51cfb7060e3b9bdee642ec6947f8b95e",
+    "semantic_hash": "51cfb7060e3b9bdee642ec6947f8b95e"
+  },
+  "escolas.html": {
+    "mtime": 1787584231.771656,
+    "seen": 1787654269.8668013,
+    "ast_hash": "9290518d3c2b24b189ad9ffad22dfa7f",
+    "semantic_hash": "9290518d3c2b24b189ad9ffad22dfa7f"
+  },
+  "index.html": {
+    "mtime": 1787584735.6282654,
+    "seen": 1787654269.866802,
+    "ast_hash": "9da27d7bad652a70b7e0147d2b0c606f",
+    "semantic_hash": "9da27d7bad652a70b7e0147d2b0c606f"
+  },
+  "llms.txt": {
+    "mtime": 1787584391.5651693,
+    "seen": 1787654269.8668027,
+    "ast_hash": "eadc11e1a15141a967ae5c1edcd64856",
+    "semantic_hash": "eadc11e1a15141a967ae5c1edcd64856"
+  },
+  "privacidade.html": {
+    "mtime": 1787584454.4339654,
+    "seen": 1787654269.8668036,
+    "ast_hash": "e44bc487a268d19b1444d39c81aeff99",
+    "semantic_hash": "e44bc487a268d19b1444d39c81aeff99"
+  },
+  "robots.txt": {
+    "mtime": 1787334824.991984,
+    "seen": 1787654269.8668044,
+    "ast_hash": "6f86555f63ed82a277c04ba449b33740",
+    "semantic_hash": "6f86555f63ed82a277c04ba449b33740"
+  },
+  "sobre.html": {
+    "mtime": 1787584147.066944,
+    "seen": 1787654269.8668053,
+    "ast_hash": "075bcdec8a3917fc28a84b304a8c244b",
+    "semantic_hash": "075bcdec8a3917fc28a84b304a8c244b"
+  },
+  "termos.html": {
+    "mtime": 1787584454.4329636,
+    "seen": 1787654269.866806,
+    "ast_hash": "4486e5882cd90c5bbd169ecec81d1fc0",
+    "semantic_hash": "4486e5882cd90c5bbd169ecec81d1fc0"
+  },
+  "assets/img/logo-badge.svg": {
+    "mtime": 1787239200.9945621,
+    "seen": 1787654269.8668067,
+    "ast_hash": "e3615f25c48e525f6d04414e32bbd0c4",
+    "semantic_hash": "e3615f25c48e525f6d04414e32bbd0c4"
+  },
+  "assets/img/logo-marca.svg": {
+    "mtime": 1787334447.0495708,
+    "seen": 1787654269.8668075,
+    "ast_hash": "0c70d472a762f87c2c8c9f8d66ffd4a7",
+    "semantic_hash": "0c70d472a762f87c2c8c9f8d66ffd4a7"
+  },
+  "assets/img/logo.svg": {
+    "mtime": 1787334447.051593,
+    "seen": 1787654269.8668084,
+    "ast_hash": "443459fdb1640a535ae8bac2b3e23c46",
+    "semantic_hash": "443459fdb1640a535ae8bac2b3e23c46"
+  },
+  "assets/img/og.png": {
+    "mtime": 1787239459.6663022,
+    "seen": 1787654269.866809,
+    "ast_hash": "17f24898c92f9b2b56a6daeab5ffda9b",
+    "semantic_hash": "17f24898c92f9b2b56a6daeab5ffda9b"
+  },
+  "favicon.svg": {
+    "mtime": 1787334447.0525734,
+    "seen": 1787654269.8668096,
+    "ast_hash": "4f0f8ff1dd260a7b7d98ac8d4d1ef91b",
+    "semantic_hash": "4f0f8ff1dd260a7b7d98ac8d4d1ef91b"
+  }
+}

@@ -51,6 +51,31 @@ não o voluntariado.
 A tabela `hf_voluntarios` continua no banco e no `schema.sql`, sem receber
 escrita nenhuma. Está documentada como encerrada.
 
+## O banco não pode dormir
+
+O plano gratuito do Supabase pausa o projeto depois de alguns dias sem
+atividade. Isso é pior do que parece: **enquanto pausado, o formulário das
+escolas falha em silêncio**, e uma coordenadora que tentar se inscrever recebe
+erro sem que ninguém do projeto fique sabendo.
+
+Para evitar, existe `.github/workflows/manter-supabase-acordado.yml`, que chama
+a função `public.ping()` toda segunda e quinta. É consulta de verdade ao
+Postgres, que é o que zera o relógio de inatividade.
+
+**Se você clonar isso para outro projeto, rode `supabase/keep-alive.sql` uma
+vez no SQL Editor**, senão a tarefa falha com 404 e você recebe e-mail do
+GitHub a cada execução.
+
+Dois detalhes que valem saber:
+
+A chave no arquivo do workflow é a **publicável**, a mesma que já está em
+`assets/js/config.js` e visível para qualquer visitante. Por isso não usa
+GitHub Secret: não é segredo. Quem protege os dados é o RLS.
+
+O GitHub **desativa tarefas agendadas depois de 60 dias sem commit** no
+repositório. Ele avisa por e-mail antes. Se o site ficar muito tempo parado, é
+só reativar no painel do GitHub, em Actions.
+
 ## Publicar um artigo novo
 
 O site não tem CMS nem editor visual, de propósito: é HTML estático, sem

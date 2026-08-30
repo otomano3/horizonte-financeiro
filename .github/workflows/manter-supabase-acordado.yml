@@ -1,0 +1,53 @@
+# Mantém o projeto Supabase acordado.
+#
+# O plano gratuito pausa o projeto depois de alguns dias sem atividade, e
+# enquanto pausado o formulário das escolas falha em silêncio: uma
+# coordenadora tenta se inscrever e recebe erro. Esta tarefa chama a função
+# public.ping() duas vezes por semana, o que conta como consulta de verdade
+# ao banco e zera o relógio de inatividade.
+#
+# A chave abaixo é a PUBLICÁVEL, a mesma que já está em assets/js/config.js
+# e visível no navegador de qualquer visitante. Não é segredo, então não
+# precisa de GitHub Secret: quem protege os dados é o RLS. A service_role
+# NUNCA deve aparecer aqui.
+
+name: Manter Supabase acordado
+
+on:
+  schedule:
+    # Segunda e quinta às 12:00 UTC (9h em Brasília). Duas vezes por semana
+    # dá folga sobre a janela de inatividade do plano gratuito.
+    - cron: "0 12 * * 1,4"
+  workflow_dispatch:      # permite rodar na mão pelo painel do GitHub
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Consultar o banco
+        env:
+          SUPABASE_URL: https://febhmuwmchfnmcnckpvj.supabase.co
+          SUPABASE_KEY: sb_publishable_qz9EYZBELY3OfuCUxc9vUA_ANwP-OoK
+        run: |
+          set -euo pipefail
+
+          resposta=$(curl -sS -X POST \
+            -H "apikey: $SUPABASE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_KEY" \
+            -H "Content-Type: application/json" \
+            -w $'\n%{http_code}' \
+            --max-time 30 \
+            "$SUPABASE_URL/rest/v1/rpc/ping")
+
+          codigo=$(printf '%s' "$resposta" | tail -n1)
+          corpo=$(printf '%s' "$resposta" | sed '$d')
+
+          echo "HTTP $codigo"
+          echo "resposta: $corpo"
+
+          if [ "$codigo" != "200" ]; then
+            echo "::error::O ping falhou (HTTP $codigo). O projeto pode estar pausado ou a função public.ping() pode não existir. Veja supabase/keep-alive.sql."
+            exit 1
+          fi
+
+          echo "Projeto acordado."
